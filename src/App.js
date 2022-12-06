@@ -17,12 +17,12 @@ function App() {
   return (
     <div className="App">
       <Router basename='/'>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
           <Route path="/gameselect" element={<GameSelect />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/signup" element={<Signup  isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
         </Routes>
       </Router>
     </div>

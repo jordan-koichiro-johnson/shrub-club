@@ -1,25 +1,27 @@
-import React from 'react'
+import {React, useState} from 'react'
 import "nes.css/css/nes.min.css"
 import './style.css'
 
-function Login() {
-    // const [userId, setUserId] = useState(0);
-    // const [userPassword, setUserPassword] = useState("");
-    // const [token, settoken] = useState("");
-
+function Login({ isLoggedIn, setIsLoggedIn }) {
+    const [userId, setUserId] = useState("");
+    // const [token, setToken] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    
     return (
-        <div className={"login"}>
-            <div className={"nes-field"}>
-                <label for="name_field">Username</label>
-                <input type="text" id="name_field" className={"nes-input"}></input>
-
-            </div>
-            <div className={"nes-field"}>
-                <label for="name_field">Password</label>
-                <input type="text" id="name_field" className={"nes-input"}></input>
-
-            </div>
-        </div>)
-}
+      <div className='login'>
+        <h1> Login </h1>
+        <form className='fromSignup'>
+          <label>Username</label>
+          <input className="nes-input" name="username" type="text" value={userId} onChange={e => setUserId(e.target.value)} />
+          <label>Password</label>
+          <input className="nes-input" name="password" type="password" value={userPassword} onChange={e => setUserPassword(e.target.value)} />
+  
+          <button type="button" className="nes-btn is-primary">Create</button>
+        </form>
+      </div>
+    )
+  }
+  
+      
 
 export default Login
