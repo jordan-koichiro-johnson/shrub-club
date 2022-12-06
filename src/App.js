@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-
-import Navbar from './components/navbar'
-import Homepage from './components/homepage'
-import GameSelect from './components/gameSelect'
-import LogIn from './components/login'
-import SignUp from './components/signup'
-import Footer from './components/footer'
+import { React, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import GameSelect from "./pages/GameSelect";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 
 import './App.css';
@@ -13,38 +12,23 @@ import './App.css';
 
 function App() {
 
-  const [currentPage, setCurrentPage] = useState('Home');
-
-  function renderNavChoice() {
-    console.log(currentPage)
-    if (currentPage === 'Home') {
-
-      return <Homepage />;
-    }
-    if (currentPage === 'GameSelect') {
-
-      return <GameSelect />;
-    }
-    if (currentPage === 'LogIn') {
-
-      return <LogIn />;
-    }
-    if (currentPage === 'SignUp') {
-
-      return <SignUp />;
-    }
-
-  }
-
-  const handlePageChange = (page) => setCurrentPage(page);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="App">
-      <Navbar currentPage={currentPage} handlePageChange={handlePageChange} />
-      {renderNavChoice()}
-      <Footer />
+      <Router basename='/'>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
+          <Route path="/gameselect" element={<GameSelect />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
+
+
 
 export default App;
