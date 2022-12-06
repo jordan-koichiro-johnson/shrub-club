@@ -9,7 +9,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    background-image: url('../util/Letitia\ \(blue\ and\ yellow\)\ \(small\).jpg');
+    background-image: url('../../util/Letitia\ \(blue\ and\ yellow\)\ \(small\).jpg');
 }
 
 .nes-btn {
