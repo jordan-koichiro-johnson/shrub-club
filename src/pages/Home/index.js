@@ -1,12 +1,18 @@
 import React from 'react'
 import "./style.css"
+
+import Voice from './voice/index'
+
 // import shrub from '../'
+
 
 export default function Home({ isLoggedIn }) {
   return (
     <div className="Home">
       {isLoggedIn ? (
+
         <div className='row'>
+          <Voice />
           <h1>shrub generated page!</h1>
           <div className="nes-container is-centered col-lg-10 col-sm-12 shrub">
             <img src="../src/assets/sprites/Untitled-Artwork-1.png" alt="character"/>
@@ -41,11 +47,13 @@ export default function Home({ isLoggedIn }) {
           <div className="nes-container col-lg-6 col-md-12 col-sm-12 chat">
 
           </div>
+
         </div>) :
         (
-          <div>
+          <div className={'notLogged'}>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
+            <Voice />
           </div>
         )}
     </div>
