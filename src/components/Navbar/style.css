@@ -5,12 +5,12 @@ nav {
     position: fixed;
     width: 100%;
     padding: 20px;
+    height: 10vh;
     border-bottom: 3px solid #ccc;
-    margin-bottom: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    background-image: url('../util/Letitia\ \(blue\ and\ yellow\)\ \(small\).jpg');
+    background-image: url('../../util/Letitia\ \(blue\ and\ yellow\)\ \(small\).jpg');
 }
 
 .nes-btn {
