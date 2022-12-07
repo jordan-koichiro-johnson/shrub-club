@@ -1,9 +1,8 @@
 // dev mode 
-
-// const URL_PREFIX="http://localhost:3006"
+const URL_PREFIX="http://localhost:3006"
 
 // publish 
-const URL_PREFIX="https://guava-api.herokuapp.com"
+// const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 
 const API = {
@@ -33,6 +32,14 @@ const API = {
             }
         }).then(res => res.json())
     },
+    findcurrentUser: (token) => {
+        return fetch(`${URL_PREFIX}/api/profile/current-user`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    },
     getUserFromToken: (token) => {
         return fetch(`${URL_PREFIX}/api/user/getuserfromtoken`, {
             method: "GET",
@@ -49,6 +56,16 @@ const API = {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
-    }
+    },
+    getMyShrub: (profileid) => {
+        return fetch(`${URL_PREFIX}/api/shrub/myshrub`, {
+            method: "GET",
+            body: JSON.stringify(profileid),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    },
+
 }
 export default API
