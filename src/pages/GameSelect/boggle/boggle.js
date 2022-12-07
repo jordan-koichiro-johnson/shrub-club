@@ -70,7 +70,7 @@ function validClick(name, positions) {
     return Math.abs(name[0] - positions[(positions.length - 1)][0]) <= 1 && Math.abs(name[1] - positions[(positions.length - 1)][1]) <= 1
 }
 
-export function Boggle() {
+function Boggle() {
     console.log('outside')
     const [word, makeWord] = useState([])
     const [positions, savePosition] = useState([])
@@ -170,5 +170,5 @@ export function Boggle() {
 
 
 
-export let pressedButton
+export default Boggle
 
