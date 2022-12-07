@@ -57,11 +57,11 @@ export function Randomize() {
 
 
 
-function makeDice(addLetter) {
+function makeDice(addLetter, style) {
     console.log('makeDice')
     let letterComponents = []
     for (let i = 0; i < dice.length; i++) {
-        letterComponents.push(<Letter name={grid[i]} letter={dice[i][0]} click={addLetter} />);
+        letterComponents.push(<Letter name={grid[i]} letter={dice[i][0]} click={addLetter} style={style[i]} />);
     }
     return letterComponents
 }
@@ -75,24 +75,30 @@ export function Boggle() {
     const [word, makeWord] = useState([])
     const [positions, savePosition] = useState([])
     const [submittedWords, submitWord] = useState([])
+    const [style, setStyle] = useState(Array(16).fill(''))
+    const [numberOfWords, wordAdded] = useState(0)
+    const [alert, alertFind] = useState('')
     function addLetter(name, newLetter) {
         if (positions.indexOf(name) < 0) {
             if (positions.length === 0 || validClick(name, positions)) {
                 savePosition([...positions, name])
-
                 makeWord([...word, newLetter])
+
+                const newArray = [...style]
+                newArray.splice(grid.indexOf(name), 1, 'active')
+                setStyle(newArray)
             }
-
         }
-
-
-
     }
     console.log('made letters')
-    letterGlobal = makeDice(addLetter)
+    letterGlobal = makeDice(addLetter, style)
     console.log(letterGlobal.length)
     function backspace() {
 
+
+        const newArray = [...style]
+        newArray.splice(grid.indexOf(positions[positions.length - 1]), 1, '')
+        setStyle(newArray)
         makeWord(word.slice(0, -1))
         savePosition(positions.slice(0, -1))
         console.log(word)
@@ -102,19 +108,29 @@ export function Boggle() {
     function reset() {
         makeWord([])
         savePosition([])
+        setStyle(Array(16).fill(''))
     }
 
     function submit() {
         let wordString = word.join('')
-        console.log(wordString + 'line 109')
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordString}`)
-            .then(response => {
-                if (response.status === 200) {
-                    submitWord([...submittedWords, wordString])
-                }
+        if (submittedWords.indexOf(wordString) < 0) {
 
-                console.log(response)
-            })
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordString}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        submitWord([...submittedWords, wordString])
+                        wordAdded(element => element + 1)
+                    } else {
+                        alertFind('Not A Word')
+                    }
+
+                    setStyle(Array(16).fill(''))
+                    reset()
+                    console.log(response)
+                })
+        } else {
+            alertFind('Already Submitted')
+        }
     }
 
     return (
@@ -127,6 +143,8 @@ export function Boggle() {
             <input type={'button'} className={'reset'} onClick={reset} value={'reset'} />
             {word}<input type={'button'} className={'submit'} onClick={submit} value={'submit'} />
             {submittedWords}
+            Number of Words Found:{numberOfWords}
+            {alert}
         </div >
     )
 }

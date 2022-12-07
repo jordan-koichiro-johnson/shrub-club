@@ -1,3 +1,7 @@
+.active {
+    background-color: blue;
+}
+
 .boggle-letter {
     border: 1px solid #333;
     font-size: 24px;
