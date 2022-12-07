@@ -42,7 +42,7 @@ function App() {
       <Router basename='/'>
         <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} setToken={setToken}/>
         <Routes>
-          <Route path="/" element={<Home userId={userId} profileId={profileId} token={token} isLoggedIn={isLoggedIn}/>} />
+          <Route path="/" element={<Home userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
           <Route path="/login" element={<Login
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userLoginId={userLoginId} setUserLoginId={setUserLoginId}
