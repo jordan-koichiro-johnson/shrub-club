@@ -1,7 +1,49 @@
+
 .notLogged {
     padding-top: 20vh;
 }
 
 .logged {
     padding-top: 20vh;
+
+.row {
+    margin-left: 2rem;
+    margin-right: 2rem
+}
+
+.shrub {
+    background-image: url('../../util/characterBG.png');
+}
+
+.shrub img {
+    width: 35%;
+}
+
+.shrub p {
+    color:white;
+}
+
+.nes-list {
+    display: grid;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    margin-left: -2rem;
+}
+
+.nes-list li {
+    margin-bottom: 8vh;
+}
+
+.menu {
+    height: 100%; background-color:burlywood;
+}
+
+.status {
+    background-color: burlywood;
+}
+
+.chat {
+    background-color: burlywood;
+
 }
