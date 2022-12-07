@@ -1,0 +1,7 @@
+.boggle {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 20vh;
+    width: 11%;
+}

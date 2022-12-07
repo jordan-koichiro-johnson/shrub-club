@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Press+Start+2P&display=swap');
-
 nav {
+    border: 5px solid black;
+    margin-left: .75vh;
+    margin-right: .75vh;
     position: fixed;
     width: 100%;
     padding: 20px;
