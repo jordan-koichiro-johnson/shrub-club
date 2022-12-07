@@ -22,7 +22,7 @@ export default function Navbar(props) {
       <nav>
         <Link to="/">Home</Link>
         {props.isLoggedIn ? (<Link to="/gameselect">GameSelect</Link>) : (<Link to="/Login">Login</Link>)}
-        {props.isLoggedIn?(<button onClick={handleLogout}>Logout</button>):(<Link to="/Signup">Signup</Link>)}
+        {props.isLoggedIn ? (<button onClick={handleLogout}>Logout</button>) : (<Link to="/Signup">Signup</Link>)}
       </nav>
     </div>
   )

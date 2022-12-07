@@ -1,0 +1,32 @@
+.boggle {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 20vh;
+    width: 11%;
+    margin-left: 30vh;
+}
+
+.boggleOther {
+    display: grid;
+    width: 11%;
+    margin: 5vh;
+    margin-left: 23vh;
+}
+
+.otherAnswer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.boggleAnswer {
+    width: 20vh;
+    height: 10vh;
+    margin: 4vh;
+    border: 2px black solid;
+}
+
+.boggleButton {
+    width: auto;
+}

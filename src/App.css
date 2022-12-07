@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Press+Start+2P&display=swap');
+
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
 .App {
+
     position: relative;
 }
