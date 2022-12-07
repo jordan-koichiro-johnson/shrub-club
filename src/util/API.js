@@ -18,10 +18,32 @@ const API = {
             headers: {
                 "Content-Type":"application/json"
             }
-        })
+        }).then(res=>res.json())
     },
-    // createprofile: (userObj) => {
-    //     return fetch(`${URL_PREFIX}/api/profile/create`)
-    // }
+    createprofile: (token) => {
+        return fetch(`${URL_PREFIX}/api/profile/create`, {
+            method:"POST", 
+            headers: {
+                "Authorization":`Bearer ${token}`
+            }
+        }).then(res=>res.json())
+    },
+    getUserFromToken: (token) => {
+        return fetch(`${URL_PREFIX}/api/user/getuserfromtoken`, {
+            method:"GET", 
+            headers: {
+                "Authorization":`Bearer ${token}`
+            }
+        }).then(res=>res.json())
+    },
+    createShrub: (profileid) => {
+        return fetch(`${URL_PREFIX}/api/shrub/create`, {
+            method: "POST",
+            body: JSON.stringify(profileid),
+            headers: {
+                "Content-Type":"application/json"
+            }
+        }).then(res=>res.json())
+    }
 }
 export default API

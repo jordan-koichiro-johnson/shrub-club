@@ -8,13 +8,15 @@ import Signup from "./pages/Signup";
 
 
 import './App.css';
+import API from "./util/API";
 
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState("");
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState(0);
+  const [profileId, setProfileId] = useState(0);
   const [userLoginId, setUserLoginId] = useState("");
   const [userLoginPassword, setUserLoginPassword] = useState("");
   const [userSignupId, setUserSignupId] = useState("");
@@ -23,7 +25,13 @@ function App() {
   useEffect(() => {
     const storeToken = localStorage.getItem("token")
     if (storeToken) {
-      console.log(storeToken)
+      API.getUserFromToken(storeToken).then(data=> {
+        if(data){
+          setToken(storeToken)
+          setIsLoggedIn(true)
+          setUserId(data.id)
+        }
+      })
     } else {
       console.log('no stored Token')
     }
@@ -32,9 +40,9 @@ function App() {
   return (
     <div className="App">
       <Router basename='/'>
-        <Navbar isLoggedIn={isLoggedIn} />
+        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} setToken={setToken}/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home userId={userId} profileId={profileId} token={token} isLoggedIn={isLoggedIn}/>} />
           <Route path="/login" element={<Login
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userLoginId={userLoginId} setUserLoginId={setUserLoginId}
@@ -45,7 +53,7 @@ function App() {
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userSignupId={userSignupId} setUserSignupId={setUserSignupId}
             userSignupPassword={userSignupPassword} setUserSignupPassword={setUserSignupPassword} token={token} setToken={setToken}
-            userId={userId} setUserId={setUserId}
+            userId={userId} setUserId={setUserId} profileId={profileId} setProfileId = {setProfileId}
           />}></Route>
         </Routes>
       </Router>
