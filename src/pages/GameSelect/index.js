@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import Boggle from './boggle/boggle'
+import Boggle from './boggle/boggle.js'
 
 export default function GameSelect() {
   return (
