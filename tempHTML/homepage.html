@@ -17,81 +17,54 @@
 
   <style>
     body {
-      font-family: 'Press Start 2P', cursive;
+
+        font-family: 'Press Start 2P', cursive;
+        background-color: rgba(26, 59, 26, 0.712);
+
     }
   </style>
 
 </head>
 
-<body class="row" style="margin-left: 2rem; margin-right: 2rem;">
-  <nav style='padding: 20px; border-bottom: 3px solid #ccc; margin-bottom: 60px'>
-    <p>CoolBob</p>
-  </nav>
+<body class= "row" style="margin-left: 2rem; margin-right: 2rem;">
+    <nav style='padding: 20px; border-bottom: 3px solid #ccc; margin-bottom: 60px'>
+             <p>CoolBob</p>
+    </nav>
 
-  <div class="nes-container is-centered col-10 col">
-    <img src="../src/assets/sprites/Untitled-Artwork-1.png" alt="character" width=500px>
-    <p>CoolBob smells like blue cheese.</p>
-  </div>
+      <div class="nes-container is-centered col-lg-10 col-sm-12" style="background-image: url('../src/util/characterBG.png');">
+        <img src="../src/assets/sprites/Untitled-Artwork-1.png" alt="character" width=35%>
+        <p style="color:white;">CoolBob smells like blue cheese.</p>
+      </div>
 
-  <div class="nes-container col-2 col" style="height: 100%;">
-    <div class="lists">
-      <ul class="nes-list" style="display: grid; align-items: center; height: 100%;">
-        <li style="margin-bottom: 3vh;">
-          <a href="/">
+      <div class="nes-container col-lg-2 col-md-6 col-sm-12" style="height: 100%; background-color:burlywood;">
+        <div class="lists">
+            <ul class="nes-list" style="display: grid; align-items: center; height: 100%; font-size: 20px; margin-left: -2rem;">
+              <li style="margin-bottom: 8vh;">Customize</li>
+              <li style="margin-bottom: 8vh;">Chat</li>
+              <li style="margin-bottom: 8vh;">Store</li>
+              <li style="margin-bottom: 8vh;">Casino</li>
+              <li style="margin-bottom: 8vh;">Options</li>
+            </ul>
+          </div>
+      </div>
 
-            Games
-          </a>
-        </li>
-        <li style="margin-bottom: 3vh;">
-          <a>
+      <div class="nes-container is-centered col-lg-6 col-sm-12" style="background-color: burlywood;">
+        <p>Level 1</p>
+        <progress class="nes-progress" value="90" max="100"></progress>
+        <p>Hunger</p>
+        <progress class="nes-progress is-success" value="50" max="100"></progress>
+        <p>Hygiene</p>
+        <progress class="nes-progress is-error" value="10" max="100"></progress>
+        <p>Happiness</p>
+        <progress class="nes-progress is-warning" value="30" max="100"></progress>
+        <p>Energy</p>
+        <progress class="nes-progress is-success" value="90" max="100"></progress>
+      </div>
+      
+      <div class="nes-container col-lg-6 col-md-12 col-sm-12" style="background-color: burlywood;">
+    
+      </div>
 
-            Customize
-          </a>
-        </li>
-        <li style="margin-bottom: 3vh;">
-          <a>
-
-            Chat
-          </a>
-        </li>
-        <li style="margin-bottom: 3vh;">
-          <a>
-
-            Store
-          </a>
-        </li>
-        <li style="margin-bottom: 3vh;">
-          <a>
-            Casino
-
-          </a>
-        </li>
-        <li style="margin-bottom: 3vh;">
-          <a>
-
-            Options
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="nes-container is-centered col-6 col">
-    <p>Level 1</p>
-    <progress class="nes-progress" value="90" max="100"></progress>
-    <p>Hunger</p>
-    <progress class="nes-progress is-success" value="50" max="100"></progress>
-    <p>Hygiene</p>
-    <progress class="nes-progress is-error" value="10" max="100"></progress>
-    <p>Happiness</p>
-    <progress class="nes-progress is-warning" value="30" max="100"></progress>
-    <p>Energy</p>
-    <progress class="nes-progress is-success" value="90" max="100"></progress>
-  </div>
-
-  <div class="nes-container col-6 col">
-
-  </div>
 
 </body>
 
