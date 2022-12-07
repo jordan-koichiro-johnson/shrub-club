@@ -139,12 +139,31 @@ export function Boggle() {
             <div className='boggle'>
                 {letterGlobal}
             </div>
-            <input type={'button'} className={'bspace'} onClick={backspace} value={'backspace'} />
-            <input type={'button'} className={'reset'} onClick={reset} value={'reset'} />
-            {word}<input type={'button'} className={'submit'} onClick={submit} value={'submit'} />
-            {submittedWords}
-            Number of Words Found:{numberOfWords}
-            {alert}
+            <div className={'boggleOther'}>
+
+                <input type={'button'} className={'bspace boggleButton'} onClick={backspace} value={'backspace'} />
+                <input type={'button'} className={'reset boggleButton'} onClick={reset} value={'reset'} />
+                <input type={'button'} className={'submit boggleButton'} onClick={submit} value={'submit'} />
+                <div className={'otherAnswer'}>
+                    <div className={'boggleAnswer'}>
+
+                        {word}
+                    </div>
+                    <div className={'boggleAnswer'}>
+
+                        {submittedWords}
+                    </div>
+                    <div className={'boggleAnswer'}>
+                        Number of Words Found:{numberOfWords}
+
+                    </div>
+                    <div className={'boggleAnswer'}>
+                        {alert}
+
+                    </div>
+                </div>
+
+            </div>
         </div >
     )
 }
