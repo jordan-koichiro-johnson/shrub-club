@@ -1,11 +1,19 @@
 import React from 'react'
 import "./style.css"
 
-export default function Home() {
+export default function Home({ isLoggedIn }) {
   return (
     <div className="Home">
-        <h1>Home page! Welcome to my site!</h1>
-        <h2>Isnt react wonderful?</h2>
+      {isLoggedIn ? (
+        <div>
+          <h1>shrub generated page!</h1>
+        </div>) :
+        (
+          <div>
+            <h1>Welcome to shrub club!</h1>
+            <h2>Your Shrub is waiting for you</h2>
+          </div>
+        )}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import "nes.css/css/nes.min.css"
 import './style.css'
 import API from '../../util/API';
 
-function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, userSignupPassword, setUserSignupPassword, setUserId, userId, token, setToken }) {
+function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, userSignupPassword, setUserSignupPassword, setUserId, userId, token, setToken, profileId, setProfileId }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,30 +17,29 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
     e.preventDefault();
     document.querySelector(".username").classList.remove("is-error")
     document.querySelector(".password").classList.remove("is-error")
-    if (userSignupId=="") {
+    if (userSignupId == "") {
       document.querySelector(".username").classList.add("is-error")
-      alert("no empty blank!")
-    } else if (userSignupPassword=="") {
+      document.querySelector(".alert").innerHTML = "no empty blank!"
+    } else if (userSignupPassword == "") {
       document.querySelector(".password").classList.add("is-error")
-      alert("no empty blank!")
+      document.querySelector(".alert").innerHTML = "no empty blank!"
     } else if (userSignupPassword.length < 8) {
       document.querySelector(".password").classList.add("is-error")
-      alert("password length should be more than 8")
+      document.querySelector(".alert").innerHTML = "password length should be more than 8"
     } else {
       API.signup({
         userName: userSignupId,
         password: userSignupPassword
       }).then(data => {
-        console.log(data);
         if (data.token) {
-          setUserId(data.user.userName)
+          setUserId(data.user.id)
           setToken(data.token)
           setIsLoggedIn(true)
           localStorage.setItem("token", data.token)
-          createprofile(data.token);
+          createNewprofile(data.token);
         } else {
           document.querySelector(".username").classList.add("is-error")
-          alert("try different user name")
+          document.querySelector(".alert").innerHTML = "try different user name"
         }
       }).catch(err => {
         console.log(err)
@@ -48,8 +47,15 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
     }
   }
 
-  const createprofile = (token) => {
-    console.log(token)
+  const createNewprofile = (token) => {
+    API.createprofile(token).then(data => {
+      setProfileId(data.id)
+      API.createShrub({
+        ProfileId: data.id,
+      }).then(data => {
+        console.log(data)
+      })
+    })
   }
 
   return (
@@ -60,7 +66,7 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
         <input className="nes-input username" name="username" type="text" value={userSignupId} onChange={e => setUserSignupId(e.target.value)} />
         <label>Password</label>
         <input className="nes-input password" name="password" type="password" value={userSignupPassword} onChange={e => setUserSignupPassword(e.target.value)} />
-        <h3> Ready to play with your Shrub?</h3>
+        <h3 className='alert'> Ready to play with your Shrub?</h3>
         <button type="button" className="nes-btn is-primary" onClick={handleSubmitSubmit}>Create</button>
       </form>
     </div>
