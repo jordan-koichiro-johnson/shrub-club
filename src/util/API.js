@@ -1,8 +1,8 @@
 // dev mode 
-// const URL_PREFIX="http://localhost:3006"
+const URL_PREFIX="http://localhost:3006"
 
 // publish 
-const URL_PREFIX = "https://guava-api.herokuapp.com"
+// const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
     login: (userObj) => {
@@ -106,6 +106,14 @@ const API = {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
-    }
+    },
+    getShrubTagCurrent: (token) => {
+        return fetch(`${URL_PREFIX}/api/shrubtag/current`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    },
 }
 export default API
