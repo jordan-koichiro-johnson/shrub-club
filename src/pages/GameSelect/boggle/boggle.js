@@ -44,7 +44,7 @@ const grid = [
 let letterGlobal = null
 // randomizes the dice array
 export function Randomize() {
-    console.log('random')
+
     for (let i = dice.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [dice[i], dice[j]] = [dice[j], dice[i]];
@@ -59,7 +59,7 @@ export function Randomize() {
 
 
 function makeDice(addLetter, style) {
-    console.log('makeDice')
+
     let letterComponents = []
     for (let i = 0; i < dice.length; i++) {
         letterComponents.push(<Letter name={grid[i]} letter={dice[i][0]} click={addLetter} style={style[i]} />);
@@ -72,7 +72,7 @@ function validClick(name, positions) {
 }
 
 export function Boggle() {
-    console.log('outside')
+
     const [word, makeWord] = useState([])
     const [positions, savePosition] = useState([])
     const [submittedWords, submitWord] = useState([])
@@ -91,9 +91,9 @@ export function Boggle() {
             }
         }
     }
-    console.log('made letters')
+
     letterGlobal = makeDice(addLetter, style)
-    console.log(letterGlobal.length)
+
     function backspace() {
 
 
@@ -102,8 +102,7 @@ export function Boggle() {
         setStyle(newArray)
         makeWord(word.slice(0, -1))
         savePosition(positions.slice(0, -1))
-        console.log(word)
-        console.log(positions)
+
     }
 
     function reset() {
@@ -119,15 +118,17 @@ export function Boggle() {
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordString}`)
                 .then(response => {
                     if (response.status === 200) {
+                        // words are correctly guessed TODO: API call to increase shrub level and money
                         submitWord([...submittedWords, wordString])
                         wordAdded(element => element + 1)
+                        alertFind('')
                     } else {
                         alertFind('Not A Word')
                     }
 
                     setStyle(Array(16).fill(''))
                     reset()
-                    console.log(response)
+
                 })
         } else {
             alertFind('Already Submitted')
@@ -147,26 +148,28 @@ export function Boggle() {
                     {letterGlobal}
                 </div>
             </div>
+            <div className={'boggleAnswer'}>
+
+                {word}
+            </div>
             <div className={'boggleOther'}>
                 <div className={'centerBoggleButtons'}>
 
-                    <input type={'button'} classNa me={'bspace boggleButton'} onClick={backspace} value={'backspace'} />
-                    <input type={'button'} className={'reset boggleButton'} onClick={reset} value={'reset'} />
-                    <input type={'button'} className={'submit boggleButton'} onClick={submit} value={'submit'} />
+                    <input type={'button'} className={'nes-btn bspace boggleButton'} onClick={backspace} value={'backspace'} />
+                    <input type={'button'} className={'nes-btn reset boggleButton'} onClick={reset} value={'reset'} />
+                    <input type={'button'} className={'nes-btn submit boggleButton'} onClick={submit} value={'submit'} />
+
 
 
                 </div>
 
                 <div className={'otherAnswer'}>
-                    <div className={'boggleAnswer'}>
 
-                        {word}
-                    </div>
-                    <div className={'boggleAnswer'}>
+                    <div className={'boggleAnswer number'}>
                         Number of Words Found:{numberOfWords}
 
                     </div>
-                    <div className={'boggleAnswer'}>
+                    <div className={'boggleAnswer submitted'}>
 
                         {submittedWords.join(', ')}
                     </div>

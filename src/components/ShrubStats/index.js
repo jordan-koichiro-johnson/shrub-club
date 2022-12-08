@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../util/API'
+import './style.css'
 
-export default function ShrubStats({ setProfileId, setUserId}) {
+export default function ShrubStats({ setProfileId, setUserId }) {
 
     const [shrubLevel, setShrubLevel] = useState(0)
     const [shrubHunger, setShrubHunger] = useState(0)
@@ -24,17 +25,32 @@ export default function ShrubStats({ setProfileId, setUserId}) {
     }, [])
 
     return (
-        <div className="GameSelect">
-            <p>Level 1</p>
-            <progress className="nes-progress" value={shrubLevel} max="100"></progress>
-            <p>Hunger</p>
-            <progress className="nes-progress is-success" value={shrubHunger}max="100"></progress>
-            <p>Hygiene</p>
-            <progress className="nes-progress is-error" value={shrubHygiene} max="100"></progress>
-            <p>Happiness</p>
-            <progress className="nes-progress is-warning" value={shrubHappiness} max="100"></progress>
-            <p>Energy</p>
-            <progress className="nes-progress is-success" value={shrubEnergy} max="100"></progress>
+        <div className="statsBars">
+            <div className='make-this-not-clip'>
+
+                <p>Level 1</p>
+                <progress className="nes-progress" value={shrubLevel} max="100"></progress>
+            </div>
+            <div>
+
+                <p>Hunger</p>
+                <progress className="nes-progress is-success" value={shrubHunger} max="100"></progress>
+            </div>
+            <div>
+
+                <p>Hygiene</p>
+                <progress className="nes-progress is-error" value={shrubHygiene} max="100"></progress>
+            </div>
+            <div>
+
+                <p>Happiness</p>
+                <progress className="nes-progress is-warning" value={shrubHappiness} max="100"></progress>
+            </div>
+            <div>
+
+                <p>Energy</p>
+                <progress className="nes-progress is-success" value={shrubEnergy} max="100"></progress>
+            </div>
         </div>
     )
 }

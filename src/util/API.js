@@ -1,8 +1,8 @@
 // dev mode 
-// const URL_PREFIX="http://localhost:3006"
+const URL_PREFIX="http://localhost:3006"
 
 // publish 
-const URL_PREFIX = "https://guava-api.herokuapp.com"
+// const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
     login: (userObj) => {
@@ -80,6 +80,40 @@ const API = {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
-    }
+    },
+    deleteShrubTag: (shrubId) => {
+        return fetch(`${URL_PREFIX}/api/shrubtag/delete`, {
+            method: "DELETE",
+            body: JSON.stringify(shrubId),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    },
+    getItemByName: (itemName) => {
+        return fetch(`${URL_PREFIX}/api/item/name/${itemName}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    },
+    saveCustom: (itemObj) => {
+        return fetch(`${URL_PREFIX}/api/shrubtag/change`, {
+            method: "POST",
+            body: JSON.stringify(itemObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    },
+    getShrubTagCurrent: (token) => {
+        return fetch(`${URL_PREFIX}/api/shrubtag/current`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    },
 }
 export default API

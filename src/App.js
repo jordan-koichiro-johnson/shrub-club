@@ -6,8 +6,12 @@ import GameSelect from "./pages/GameSelect";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Custom from "./pages/Custom";
+
 import Store from "./pages/Store";
 import Chat from "./pages/Chat";
+
+
+import "nes.css/css/nes.min.css"
 
 
 import './App.css';
@@ -29,8 +33,8 @@ function App() {
   useEffect(() => {
     const storeToken = localStorage.getItem("token")
     if (storeToken) {
-      API.getUserFromToken(storeToken).then(data=> {
-        if(data){
+      API.getUserFromToken(storeToken).then(data => {
+        if (data) {
           setToken(storeToken)
           setIsLoggedIn(true)
           setUserId(data.id)
@@ -44,9 +48,9 @@ function App() {
   return (
     <div className="App">
       <Router basename='/'>
-        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} setToken={setToken}/>
+        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} setToken={setToken} />
         <Routes>
-          <Route path="/" element={<Home userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>} />
+          <Route path="/" element={<Home userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />} />
           <Route path="/login" element={<Login
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userLoginId={userLoginId} setUserLoginId={setUserLoginId}
@@ -57,11 +61,13 @@ function App() {
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userSignupId={userSignupId} setUserSignupId={setUserSignupId}
             userSignupPassword={userSignupPassword} setUserSignupPassword={setUserSignupPassword} token={token} setToken={setToken}
-            userId={userId} setUserId={setUserId} profileId={profileId} setProfileId = {setProfileId}
+            userId={userId} setUserId={setUserId} profileId={profileId} setProfileId={setProfileId}
           />}></Route>
+
           <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
           <Route path="/store" element={<Store userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
           <Route path="/chat" element={<Chat userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+
         </Routes>
       </Router>
     </div>

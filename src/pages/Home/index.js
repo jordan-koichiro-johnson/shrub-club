@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
 import ShrubStats from '../../components/ShrubStats'
 
-import Voice from './voice/index.js'
+// import Voice from './voice/index.js'
 
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
-
-
 
 
   return (
@@ -19,7 +17,9 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
 
           {/* // <Voice /> */}
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub">
+
             <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>
+
 
           </div>
 
@@ -35,10 +35,10 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
             </div>
           </div>
 
-          <div className="nes-container is-centered col-lg-6 col-sm-12 status">
+          <div className="nes-container is-centered col-lg-8 col-sm-12 status">
             <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />
           </div>
-          <div className="nes-container col-lg-6 col-md-12 col-sm-12 chat">
+          <div className="nes-container col-lg-4 col-md-12 col-sm-12 chat">
 
           </div>
 
