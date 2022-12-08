@@ -5,18 +5,18 @@ import ShrubStats from '../../components/ShrubStats'
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken }) {
 
-// import Voice from './voice/index'
+
 
   return (
     <div className="Home">
       {isLoggedIn ? (
         <div className='row'>
-          // <Voice />
-          <div className="nes-container is-centered col-lg-10 col-sm-12 shrub">
+
+          <div className="nes-container is-centered col-lg-9 col-sm-12 shrub">
             <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />
           </div>
 
-          <div className="nes-container col-lg-2 col-md-6 col-sm-12 menu">
+          <div className="nes-container col-lg-3 col-md-6 col-sm-12 menu">
             <div className="lists">
               <ul className="nes-list">
                 <li>Customize</li>
@@ -40,7 +40,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className={'notLogged'}>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            <Voice />
+
           </div>
         )}
     </div>

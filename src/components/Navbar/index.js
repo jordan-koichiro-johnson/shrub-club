@@ -18,11 +18,42 @@ export default function Navbar(props) {
   }
 
   return (
-    <div className='Navbar'>
-      <nav>
-        <Link to="/">Home</Link>
-        {props.isLoggedIn ? (<Link to="/gameselect">GameSelect</Link>) : (<Link to="/Login">Login</Link>)}
-        {props.isLoggedIn ? (<button onClick={handleLogout}>Logout</button>) : (<Link to="/Signup">Signup</Link>)}
+    <div >
+      <nav className='Navbar'>
+
+
+        <Link to="/" className={'nav-link'}>
+          <div className={'nes-btn'}>
+            Home
+          </div>
+
+        </Link>
+
+        <div >
+
+          {props.isLoggedIn ? (<Link to="/gameselect" className={'nav-link'}>
+            <div className={'nes-btn'}>
+              gameSelect
+            </div>
+          </Link>) :
+            (<Link to="/Login" className={'nav-link'}>
+              <div className={'nes-btn'}>
+                Login
+              </div></Link>)}
+        </div>
+        <div >
+
+          {props.isLoggedIn ? (<button onClick={handleLogout} className={'nav-link logout'}>
+            <div className={'nes-btn'}>
+              Logout
+            </div>
+          </button>) :
+            (<Link to="/Signup" className={'nav-link'}>
+              <div className={'nes-btn'}>
+                Signup
+              </div>
+            </Link>)}
+        </div>
       </nav>
     </div>
   )

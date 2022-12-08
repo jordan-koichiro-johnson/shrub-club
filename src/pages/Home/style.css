@@ -1,3 +1,6 @@
+.Home {
+    padding-top: 10vh;
+}
 
 .notLogged {
     padding-top: 20vh;
@@ -5,22 +8,19 @@
 
 .logged {
     padding-top: 20vh;
-
-.row {
-    margin-left: 2rem;
-    margin-right: 2rem
 }
 
 .shrub {
     background-image: url('../../util/characterBG.png');
+    background-size: cover;
 }
 
 .shrub img {
-    width: 35%;
+    width: 70vh;
 }
 
 .shrub p {
-    color:white;
+    color: white;
 }
 
 .nes-list {
@@ -36,7 +36,8 @@
 }
 
 .menu {
-    height: 100%; background-color:burlywood;
+    height: auto;
+    background-color: burlywood;
 }
 
 .status {
@@ -46,4 +47,29 @@
 .chat {
     background-color: burlywood;
 
+}
+
+@media (max-width: 1000px) {
+
+
+    * {
+        overflow-x: hidden;
+    }
+
+    .chat {
+        width: 100vw;
+    }
+
+    .status {
+        width: 100vw;
+    }
+
+    .shrub {
+        width: 100vw;
+    }
+
+    .menu {
+        text-align: center;
+        width: 100vw;
+    }
 }
