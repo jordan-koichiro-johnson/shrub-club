@@ -1,6 +1,7 @@
 import './boggle.css'
 import Letter from './boggleComponents/letters'
 import React, { useState, useEffect } from "react";
+import API from '../../../util/API';
 
 
 
@@ -111,6 +112,8 @@ export function Boggle() {
         setStyle(Array(16).fill(''))
     }
 
+    const [profileId, setProfileId] = useState(0);
+
     function submit() {
         let wordString = word.join('')
         if (submittedWords.indexOf(wordString) < 0) {
@@ -119,6 +122,17 @@ export function Boggle() {
                 .then(response => {
                     if (response.status === 200) {
                         // words are correctly guessed TODO: API call to increase shrub level and money
+                        const token = localStorage.getItem("token")
+                        API.findcurrentUser(token).then(data => {
+                            const profileData = data;
+                            setProfileId(data.id)
+                            console.log(profileData)
+                            API.updateProfile({
+                                money: profileData.money + 10, 
+                                days: profileData.days + 10,
+                                UserId: profileData.UserId
+                            })
+                        })
                         submitWord([...submittedWords, wordString])
                         wordAdded(element => element + 1)
                         alertFind('')
