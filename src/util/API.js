@@ -1,5 +1,8 @@
 // dev mode 
+
 // const URL_PREFIX = "http://localhost:3006"
+
+
 
 // publish 
 const URL_PREFIX = "https://guava-api.herokuapp.com"
@@ -121,5 +124,23 @@ const API = {
             }
         }).then(res => res.json())
     },
+    updateShrub: (shrubObj) => {
+        return fetch(`${URL_PREFIX}/api/shrub/update`, {
+            method: "POST",
+            body: JSON.stringify(shrubObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    },
+    updateProfile: (profileObj) => {
+        return fetch(`${URL_PREFIX}/api/profile/update`, {
+            method: "PUT",
+            body: JSON.stringify(profileObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    }
 }
 export default API

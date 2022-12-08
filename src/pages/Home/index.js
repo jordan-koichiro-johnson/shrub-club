@@ -27,8 +27,8 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
             <div className="lists">
               <ul className="nes-list">
                 <li><Link to="customize">Customize</Link></li>
-                <li>Chat</li>
-                <li>Store</li>
+                <li><Link to="chat">Chat</Link></li>
+                <li><Link to="store">Store</Link></li>
                 <li>Casino</li>
                 <li>Options</li>
               </ul>

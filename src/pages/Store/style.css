@@ -1,0 +1,12 @@
+.img {
+    width: 10%;
+}
+
+.btns {
+    justify-content: space-around;
+    display: flex;
+}
+
+.shopBody {
+    margin: 20vh;
+}
