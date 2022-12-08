@@ -1,10 +1,19 @@
 // dev mode 
-const URL_PREFIX = "http://localhost:3006"
+
+// const URL_PREFIX = "http://localhost:3006"
+
+
 
 // publish 
-// const URL_PREFIX = "https://guava-api.herokuapp.com"
+const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
+    natural: (myInit, setSentiment) => {
+        return fetch(`${URL_PREFIX}/api/natural/`, myInit)
+            .then(res => res.json())
+            .then(res => setSentiment(res))
+            .catch(err => console.log(err))
+    },
     login: (userObj) => {
         return fetch(`${URL_PREFIX}/api/user/login`, {
             method: "POST",
