@@ -17,6 +17,7 @@
 
 .shrub img {
     width: 70vh;
+    translate: transform(-10vw, 0vh);
 }
 
 .shrub p {
