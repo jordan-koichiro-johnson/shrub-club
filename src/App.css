@@ -7,6 +7,7 @@
 
 body {
     overflow: overlay;
+    background-color: rgba(26, 59, 26, 0.712);
 }
 
 .App {
