@@ -2,6 +2,10 @@
     position:relative;
 }
 
-img {
-    position: absolute;
+.top img {
+    width: 35%;
+}
+
+.top {
+    background-image: url('../../util/characterBG.png');
 }

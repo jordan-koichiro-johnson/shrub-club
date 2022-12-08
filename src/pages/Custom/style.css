@@ -1,0 +1,18 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgba(26, 59, 26, 0.712);
+}
+
+
+.row {
+    margin-left: 2rem; margin-right: 2rem;
+}
+
+.row nav {
+    padding: 20px; border-bottom: 3px solid #ccc; margin-bottom: 60px
+}
+
+.bottom {
+    display: flex; justify-content: space-around;
+      align-items: center;
+}

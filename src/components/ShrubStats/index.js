@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../util/API'
 
-export default function ShrubStats({ userId, profileId, isLoggedIn, setProfileId, token, setToken, setUserId }) {
+export default function ShrubStats({ setProfileId, setUserId}) {
 
-    const [shrubId, setShrubId] = useState(0)
-    const [shurbName, setShrubName] = useState("")
     const [shrubLevel, setShrubLevel] = useState(0)
     const [shrubHunger, setShrubHunger] = useState(0)
     const [shrubHappiness, setShrubHappiness] = useState(0)
@@ -17,8 +15,6 @@ export default function ShrubStats({ userId, profileId, isLoggedIn, setProfileId
         API.findcurrentUser(token).then(data => {
             setUserId(data.UserId)
             setProfileId(data.id)
-            setShrubId(data.Shrub.id)
-            setShrubName(data.Shrub.name)
             setShrubLevel(data.Shrub.level)
             setShrubHunger(data.Shrub.hunger)
             setShrubHappiness(data.Shrub.happiness)
