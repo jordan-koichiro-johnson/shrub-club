@@ -1,0 +1,8 @@
+.statsBars {
+    width: 100%;
+    justify-content: center;
+}
+
+.nes-progress {
+    width: 90% !important;
+}

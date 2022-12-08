@@ -1,5 +1,5 @@
 import React from 'react'
-import "nes.css/css/nes.min.css"
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import './homepage.css'
 import Character from '../assets/index.js'
@@ -58,7 +58,7 @@ function Homepage() {
         </div>
         <div className={'row'}>
 
-            <div class={"nes-container is-centered col-6 col"}>
+            <div class={"nes-container is-centered col-8 col"}>
                 <p>Level 1</p>
                 <progress className={"nes-progress"} value={"90"} max={"100"}></progress>
                 <p>Hunger</p>
@@ -70,7 +70,7 @@ function Homepage() {
                 <p>Energy</p>
                 <progress class={"nes-progress is-success"} value={"90"} max={"100"}></progress>
             </div>
-            <div class="nes-container col-6 col">
+            <div class="nes-container col-4 col">
 
             </div>
         </div>

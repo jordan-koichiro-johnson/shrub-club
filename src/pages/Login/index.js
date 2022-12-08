@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
-import "nes.css/css/nes.min.css"
+
 import './style.css'
 import API from '../../util/API';
 

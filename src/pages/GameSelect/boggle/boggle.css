@@ -1,3 +1,14 @@
+input {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
 .boggleDiv {
     padding-top: 10vh;
     display: grid;
@@ -5,6 +16,7 @@
     align-items: center;
     background-color: #FFCC8F;
     height: 100vh;
+    text-align: center;
 }
 
 .title {
@@ -58,11 +70,15 @@
 
 .boggleAnswer {
     padding: 5px;
-    width: fit-content;
+    width: 100%;
     text-align: center;
     /* border: 2px black solid; */
 }
 
 .not {
     color: red;
+}
+
+.submitted {
+    color: green;
 }
