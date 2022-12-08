@@ -17,7 +17,9 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
 
           {/* // <Voice /> */}
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub">
-            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
+
+            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>
+
 
           </div>
 

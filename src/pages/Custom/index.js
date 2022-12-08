@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react'
 import API from '../../util/API'
 import "./style.css"
 import shrub from "../../assets/sprites/Shrub.png"
-import IMAGES from '../../assets/sprites'
 
 export default function Custom() {
     const token = localStorage.getItem("token")
@@ -28,7 +27,6 @@ export default function Custom() {
                         }
                     })
                 })
-
         })
         headArray.push("default")
         eyeArray.push("default")
@@ -42,14 +40,14 @@ export default function Custom() {
     function handlehead(e) {
         e.preventDefault()
         console.log(e.target.value)
-        if (e.target.value == "left") {
-            if (headnum == 0) {
+        if (e.target.value === "left") {
+            if (headnum === 0) {
                 setheadnum(headArray.length - 1)
             } else {
                 setheadnum(headnum - 1)
             }
-        } else if (e.target.value == "right") {
-            if (headnum == headArray.length - 1) {
+        } else if (e.target.value === "right") {
+            if (headnum === headArray.length - 1) {
                 setheadnum(0)
             } else {
                 setheadnum(headnum + 1)
@@ -61,14 +59,14 @@ export default function Custom() {
     const handleeye = (e) => {
         e.preventDefault()
         console.log(e.target.value)
-        if (e.target.value == "left") {
-            if (eyenum == 0) {
+        if (e.target.value === "left") {
+            if (eyenum === 0) {
                 seteyenum(eyeArray.length - 1)
             } else {
                 seteyenum(eyenum - 1)
             }
-        } else if (e.target.value == "right") {
-            if (eyenum == eyeArray.length - 1) {
+        } else if (e.target.value === "right") {
+            if (eyenum === eyeArray.length - 1) {
                 seteyenum(0)
             } else {
                 seteyenum(eyenum + 1)
@@ -80,14 +78,14 @@ export default function Custom() {
     const handlemouth = (e) => {
         e.preventDefault()
         console.log(e.target.value)
-        if (e.target.value == "left") {
-            if (mouthnum == 0) {
+        if (e.target.value === "left") {
+            if (mouthnum === 0) {
                 setmouthnum(mouthArray.length - 1)
             } else {
                 setmouthnum(mouthnum - 1)
             }
-        } else if (e.target.value == "right") {
-            if (mouthnum == mouthArray.length - 1) {
+        } else if (e.target.value === "right") {
+            if (mouthnum === mouthArray.length - 1) {
                 setmouthnum(0)
             } else {
                 setmouthnum(mouthnum + 1)
@@ -96,9 +94,35 @@ export default function Custom() {
         setMouthItem(mouthArray[mouthnum])
     }
 
+    const [shrubId, setShrubId] = useState(0);
+    const [profileId, setProfileId] = useState(0);
+
     const saveChange = (e) => {
         console.log('clieck')
+        API.findcurrentUser(token).then(data => {
+            console.log(data.Shrub)
+            console.log(shrubId)
+            setShrubId(data.Shrub.id);
+            setProfileId(data.Shrub.ProfileId)
+            API.deleteShrubTag({ ShrubId: shrubId }).then(data => {
+                console.log(data)
+                dataSave(headItem)
+                dataSave(eyeItem);
+                dataSave(mouthItem);
+            })
+        })
     }
+
+    const dataSave = (itemName) => {
+        API.getItemByName(itemName).then(data => {
+            console.log(data)
+            API.saveCustom({
+                ShrubId: shrubId,
+                ItemId: data.id
+            })
+        }).then(data => {console.log(data)})
+    }
+
     return (
         <div className="row">
             <div className="nes-container is-centered col-lg-12 col-sm-12 top">
@@ -109,9 +133,9 @@ export default function Custom() {
 
                 <div className='shrubpic'>
                     <img src={shrub} />
-                    <img src={require(`../../assets/sprites/${headItem}.png`)}/>
-                    <img src={require(`../../assets/sprites/${mouthItem}.png`)}/>
-                    <img src={require(`../../assets/sprites/${eyeItem}.png`)}/>
+                    <img src={require(`../../assets/sprites/${headItem}.png`)} />
+                    <img src={require(`../../assets/sprites/${mouthItem}.png`)} />
+                    <img src={require(`../../assets/sprites/${eyeItem}.png`)} />
                     <p>{`../../assets/sprites/${mouthItem}.png`}</p>
                 </div>
 
