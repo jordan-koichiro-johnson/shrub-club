@@ -1,6 +1,37 @@
 .GameSelect {
-    position:relative;
+    position: relative;
 }
+
+.clothes {
+    width: 70vw;
+    height: 70vh;
+
+}
+
+
+img {
+    position: absolute;
+
+    transform: translate(-10vw, -10vh);
+}
+
+.description {
+    font-size: 100%;
+    position: absolute;
+    transform: translate(15vw, 60vh);
+    font-size: 1rem;
+}
+
+
+@media (max-width: 1000px) {
+
+
+    img {
+        position: absolute;
+
+        transform: translate(-40vw, -10vh);
+    }
+
 
 .top img {
     width: 35%;
@@ -8,4 +39,5 @@
 
 .top {
     background-image: url('../../util/characterBG.png');
+
 }

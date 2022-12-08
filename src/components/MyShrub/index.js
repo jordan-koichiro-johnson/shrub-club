@@ -20,9 +20,10 @@ export default function MyShrub({ setProfileId }) {
     <div className="GameSelect">
       <div className='clothes'>
         <img src={shrub} />
-        <img src={blash}/>
+        <img src={blash} />
+        <p className={'description'}>{shurbName} smells like blue cheese.</p>
       </div>
-      <p>{shurbName} smells like blue cheese.</p>
+
     </div>
   )
 }

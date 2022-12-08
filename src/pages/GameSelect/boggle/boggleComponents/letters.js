@@ -13,7 +13,7 @@ function Letter({ name, letter, click, style }) {
     }
 
     return (
-        <div>
+        <div className={'letterComp'}>
             <input type={'button'} id={name} className={`boggle-letter ${style}`} onClick={doAddLetter} value={letter} />
         </div>
     )

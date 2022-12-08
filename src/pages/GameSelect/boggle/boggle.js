@@ -3,6 +3,7 @@ import Letter from './boggleComponents/letters'
 import React, { useState, useEffect } from "react";
 
 
+
 let dice = [["R", "F", "Y", "I", "V", "N"],
 ["W", "G", "E", "K", "U", "O"],
 ["H", "L", "P", "S", "D", "T"],
@@ -70,7 +71,7 @@ function validClick(name, positions) {
     return Math.abs(name[0] - positions[(positions.length - 1)][0]) <= 1 && Math.abs(name[1] - positions[(positions.length - 1)][1]) <= 1
 }
 
-function Boggle() {
+export function Boggle() {
     console.log('outside')
     const [word, makeWord] = useState([])
     const [positions, savePosition] = useState([])
@@ -134,30 +135,42 @@ function Boggle() {
     }
 
     return (
-        < div >
+        < div className={'boggleDiv'}>
 
-            <div className='boggle'>
-                {letterGlobal}
+
+            <div className={'title'}>
+                Shrubble
+            </div>
+            <div className={'centerBoggle'}>
+
+                <div className='boggle'>
+                    {letterGlobal}
+                </div>
             </div>
             <div className={'boggleOther'}>
+                <div className={'centerBoggleButtons'}>
 
-                <input type={'button'} className={'bspace boggleButton'} onClick={backspace} value={'backspace'} />
-                <input type={'button'} className={'reset boggleButton'} onClick={reset} value={'reset'} />
-                <input type={'button'} className={'submit boggleButton'} onClick={submit} value={'submit'} />
+                    <input type={'button'} classNa me={'bspace boggleButton'} onClick={backspace} value={'backspace'} />
+                    <input type={'button'} className={'reset boggleButton'} onClick={reset} value={'reset'} />
+                    <input type={'button'} className={'submit boggleButton'} onClick={submit} value={'submit'} />
+
+
+                </div>
+
                 <div className={'otherAnswer'}>
                     <div className={'boggleAnswer'}>
 
                         {word}
                     </div>
                     <div className={'boggleAnswer'}>
-
-                        {submittedWords}
-                    </div>
-                    <div className={'boggleAnswer'}>
                         Number of Words Found:{numberOfWords}
 
                     </div>
                     <div className={'boggleAnswer'}>
+
+                        {submittedWords.join(', ')}
+                    </div>
+                    <div className={'boggleAnswer not'}>
                         {alert}
 
                     </div>
@@ -170,5 +183,5 @@ function Boggle() {
 
 
 
-export default Boggle
+
 

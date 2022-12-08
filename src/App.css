@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Press+Start+2P&display=swap');
 
 * {
-    font-family: 'Press Start 2P', cursive;
+    overflow-x: hidden;
+}
+
+
+body {
+    overflow: overlay;
 }
 
 .App {
 
     position: relative;
+}
+
+
+@media (max-width: 1000px) {
+    * {
+        overflow-x: hidden;
+    }
 }
