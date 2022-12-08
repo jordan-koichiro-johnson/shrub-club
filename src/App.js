@@ -6,7 +6,13 @@ import GameSelect from "./pages/GameSelect";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Custom from "./pages/Custom";
+
+import Store from "./pages/Store";
+import Chat from "./pages/Chat";
+
+
 import "nes.css/css/nes.min.css"
+
 
 import './App.css';
 import API from "./util/API";
@@ -57,7 +63,11 @@ function App() {
             userSignupPassword={userSignupPassword} setUserSignupPassword={setUserSignupPassword} token={token} setToken={setToken}
             userId={userId} setUserId={setUserId} profileId={profileId} setProfileId={setProfileId}
           />}></Route>
-          <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />} />
+
+          <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+          <Route path="/store" element={<Store userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+          <Route path="/chat" element={<Chat userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+
         </Routes>
       </Router>
     </div>
