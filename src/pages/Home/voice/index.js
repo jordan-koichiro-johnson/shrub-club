@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import API from '../../../util/API'
 // import { SentimentAnalyzer, stemmer } from 'natural'
 let recording = false
 
@@ -52,10 +53,9 @@ function Voice() {
             body: JSON.stringify(stringArray),
 
         };
-        fetch('http://localhost:3006/api/natural/', myInit)
-            .then(res => res.json())
-            .then(res => setSentiment(res))
-            .catch(err => console.log(err))
+
+        API.natural(myInit, setSentiment)
+        //TODO: if negative, happiness down, if positive happiness up
     }
 
 
