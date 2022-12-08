@@ -20,7 +20,7 @@
 
 .boggle {
     display: grid;
-    justify-content: center;
+
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: fit-content;
 
@@ -52,14 +52,14 @@
 
 .otherAnswer {
     display: grid;
-    justify-content: center;
+    justify-items: center;
     grid-template-columns: 1fr;
 }
 
 .boggleAnswer {
     padding: 5px;
     width: fit-content;
-
+    text-align: center;
     /* border: 2px black solid; */
 }
 

@@ -24,9 +24,9 @@ button {
 }
 
 .nes-btn {
-    width: min-content;
-    margin: 1rem;
 
+    margin: 1rem;
+    width: fit-content;
     overflow-x: visible;
 
 }

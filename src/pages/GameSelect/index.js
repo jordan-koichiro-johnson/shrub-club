@@ -1,6 +1,9 @@
 import React from 'react'
 import './style.css'
-import Boggle from './boggle/boggle.js'
+
+import { Randomize, Boggle } from './boggle/boggle'
+
+Randomize()
 
 export default function GameSelect() {
   return (
