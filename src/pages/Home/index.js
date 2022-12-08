@@ -1,9 +1,14 @@
 import React from 'react'
 import "./style.css"
+import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
 import ShrubStats from '../../components/ShrubStats'
+
 import Voice from './voice/index.js'
-export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken }) {
+
+
+export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
+
 
 
 
@@ -12,14 +17,16 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
       {isLoggedIn ? (
         <div className='row'>
 
-          <div className="nes-container is-centered col-lg-9 col-sm-12 shrub">
-            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />
+          {/* // <Voice /> */}
+          <div className="nes-container is-centered col-lg-10 col-sm-12 shrub">
+            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>
+
           </div>
 
           <div className="nes-container col-lg-3 col-md-6 col-sm-12 menu">
             <div className="lists">
               <ul className="nes-list">
-                <li>Customize</li>
+                <li><Link to="customize">Customize</Link></li>
                 <li>Chat</li>
                 <li>Store</li>
                 <li>Casino</li>
@@ -37,10 +44,10 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
 
         </div>) :
         (
-          <div className={'notLogged'}>
+          <div className='notLogged'>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            <Voice />
+            {/* <Voice /> */}
           </div>
         )}
     </div>

@@ -8,6 +8,7 @@
 
 }
 
+
 img {
     position: absolute;
 
@@ -30,5 +31,13 @@ img {
 
         transform: translate(-40vw, -10vh);
     }
+
+
+.top img {
+    width: 35%;
+}
+
+.top {
+    background-image: url('../../util/characterBG.png');
 
 }

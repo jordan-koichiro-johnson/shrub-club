@@ -4,7 +4,6 @@
 // publish 
 const URL_PREFIX = "https://guava-api.herokuapp.com"
 
-
 const API = {
     login: (userObj) => {
         return fetch(`${URL_PREFIX}/api/user/login`, {
@@ -66,6 +65,21 @@ const API = {
             }
         }).then(res => res.json())
     },
-
+    getProfileTag: (token) => {
+        return fetch(`${URL_PREFIX}/api/profiletag/current`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    },
+    getOneItem: (itemId) => {
+        return fetch(`${URL_PREFIX}/api/item/${itemId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    }
 }
 export default API

@@ -4,7 +4,7 @@ import './style.css'
 import shrub from "../../assets/sprites/Shrub.png"
 import blash from "../../assets/sprites/blash.png"
 
-export default function MyShrub({ userId, profileId, isLoggedIn, setProfileId, token, setToken, setUserId }) {
+export default function MyShrub({ setProfileId }) {
 
   const [shurbName, setShrubName] = useState("")
 
@@ -12,8 +12,6 @@ export default function MyShrub({ userId, profileId, isLoggedIn, setProfileId, t
     const token = localStorage.getItem("token")
     API.findcurrentUser(token).then(data => {
       console.log(data)
-      setUserId(data.UserId)
-      setProfileId(data.id)
       setShrubName(data.Shrub.name)
     })
   }, [])

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import GameSelect from "./pages/GameSelect";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Custom from "./pages/Custom";
 
 
 import './App.css';
@@ -17,6 +18,7 @@ function App() {
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
   const [profileId, setProfileId] = useState(0);
+  const [shrubId, setShrubId] = useState(0);
   const [userLoginId, setUserLoginId] = useState("");
   const [userLoginPassword, setUserLoginPassword] = useState("");
   const [userSignupId, setUserSignupId] = useState("");
@@ -42,7 +44,7 @@ function App() {
       <Router basename='/'>
         <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={token} setToken={setToken}/>
         <Routes>
-          <Route path="/" element={<Home userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+          <Route path="/" element={<Home userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>} />
           <Route path="/login" element={<Login
             isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
             userLoginId={userLoginId} setUserLoginId={setUserLoginId}
@@ -55,6 +57,7 @@ function App() {
             userSignupPassword={userSignupPassword} setUserSignupPassword={setUserSignupPassword} token={token} setToken={setToken}
             userId={userId} setUserId={setUserId} profileId={profileId} setProfileId = {setProfileId}
           />}></Route>
+          <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
         </Routes>
       </Router>
     </div>
