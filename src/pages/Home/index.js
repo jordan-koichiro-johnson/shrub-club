@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
 import ShrubStats from '../../components/ShrubStats'
 
-import Voice from './voice/index.js'
-
-
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
 
 
@@ -15,7 +12,6 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
       {isLoggedIn ? (
         <div className='row'>
 
-          {/* // <Voice /> */}
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub">
 
             <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
@@ -47,7 +43,6 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className='notLogged'>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            {<Voice />}
           </div>
         )}
     </div>

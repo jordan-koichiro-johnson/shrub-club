@@ -1,11 +1,11 @@
 // dev mode 
 
-// const URL_PREFIX = "http://localhost:3006"
+const URL_PREFIX = "http://localhost:3006"
 
 
 
 // publish 
-const URL_PREFIX = "https://guava-api.herokuapp.com"
+// const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
     natural: (myInit, setSentiment) => {
@@ -126,7 +126,7 @@ const API = {
     },
     updateShrub: (shrubObj) => {
         return fetch(`${URL_PREFIX}/api/shrub/update`, {
-            method: "POST",
+            method: "PUT",
             body: JSON.stringify(shrubObj),
             headers: {
                 "Content-Type": "application/json"
