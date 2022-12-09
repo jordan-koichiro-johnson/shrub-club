@@ -47,10 +47,14 @@
     background-color: burlywood;
 }
 
-.chat {
+.option {
     background-color: burlywood;
     margin: 0;
+}
 
+.option button img {
+    width: 30%;
+    position: relative;
 }
 
 .nes-container .status {
@@ -80,4 +84,8 @@
         text-align: center;
         width: 100vw;
     }
+}
+
+.option button img:hover {
+    filter: grayscale(1);
 }
