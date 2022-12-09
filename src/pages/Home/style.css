@@ -73,10 +73,14 @@
     background-color: burlywood;
 }
 
-.chat {
+.option {
     background-color: burlywood;
     margin: 0;
+}
 
+.option button img {
+    width: 30%;
+    position: relative;
 }
 
 .nes-container .status {
@@ -107,13 +111,12 @@
         width: 100vw;
     }
 
-
     .notLoggedTitle {
         left: 15%;
         width: 150%;
         height: 80%;
     }
-
+    
     .notLoggedDiv {
         width: 100%;
         height: 100%;
