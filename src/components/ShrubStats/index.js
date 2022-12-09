@@ -113,11 +113,11 @@ export default function ShrubStats({ clean, sleep, eat }) {
                             hunger: shrubData.hunger - 2,
                             hygiene: shrubData.hygiene - 1,
                             happiness: shrubData.happiness - 1,
-                            energy: shrubData.energy + 10,
+                            energy: shrubData.energy + 50,
                             ProfileId: shrubData.ProfileId,
                         }).then(data => {
                             console.log(data)
-                            setShrubEnergy(shrubEnergy + 10)
+                            setShrubEnergy(shrubEnergy + 50)
                             if (optionData === true) {
                                 setOptionData(false)
                             } else if (optionData === false) {
