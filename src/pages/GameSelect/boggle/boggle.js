@@ -139,10 +139,8 @@ export function Boggle() {
                     } else {
                         alertFind('Not A Word')
                     }
-
                     setStyle(Array(16).fill(''))
                     reset()
-
                 })
         } else {
             alertFind('Already Submitted')

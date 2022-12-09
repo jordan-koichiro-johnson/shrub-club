@@ -1,8 +1,8 @@
 // dev mode 
-//const URL_PREFIX="http://localhost:3006"
+const URL_PREFIX = "http://localhost:3006"
 
 // publish 
- const URL_PREFIX = "https://guava-api.herokuapp.com"
+//  const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
     natural: (myInit, setSentiment) => {
@@ -134,6 +134,23 @@ const API = {
         return fetch(`${URL_PREFIX}/api/profile/update`, {
             method: "PUT",
             body: JSON.stringify(profileObj),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+    },
+    currentUserWithProfile: (token) => {
+        return fetch(`${URL_PREFIX}/api/user/current-user`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json())
+    },
+    createProfileTag: (tagObj) => {
+        return fetch(`${URL_PREFIX}/api/profiletag/add`, {
+            method: "POST",
+            body: JSON.stringify(tagObj),
             headers: {
                 "Content-Type": "application/json"
             }
