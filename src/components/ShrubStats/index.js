@@ -61,7 +61,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
                     hunger: data.Shrub.hunger - 5,
                     hygiene: data.Shrub.hygiene - 5,
                     happiness: data.Shrub.happiness,
-                    energy: data.Shrub.energy - 1,
+                    energy: data.Shrub.energy - 5,
                     ProfileId: data.Shrub.ProfileId,
                 }).then(data => {
                     console.log(data)
@@ -72,7 +72,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
 
     useEffect(() => {
         if (clean === true) {
-            if (shrubData.hygiene >= 100) {
+            if (shrubHygiene >= 100) {
                 alert("Shrub is already clean")
                 return
             } else {
@@ -101,7 +101,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
 
     useEffect(() => {
         if (sleep === true) {
-            if (shrubData.energy >= 100) {
+            if (shrubEnergy >= 100) {
                 alert("full energy")
                 return
             } else {
@@ -134,7 +134,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
 
     useEffect(() => {
         if (eat === true) {
-            if (shrubData.hunger >= 100) {
+            if (shrubEat >= 100) {
                 alert("Shrub is already full")
                 return
             } else {

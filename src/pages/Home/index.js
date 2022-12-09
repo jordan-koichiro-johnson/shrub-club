@@ -134,25 +134,37 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
   const [eat, setEat] = useState(false);
 
   const buttonClean = () => {
-    setClean(true)
-    setTimeout(()=> {
-      setClean(false)
-    }, 5000)
+    if (sleep === true || eat === true) {
+      return
+    } else {
+      setClean(true)
+      setTimeout(() => {
+        setClean(false)
+      }, 5000)
+    }
+
   }
 
   const buttonSleep = () => {
-    setSleep(true)
-    setTimeout(()=> {
-      setSleep(false)
-    }, 360000)
+    if (clean === true || eat === true) {
+      return
+    } else {
+      setSleep(true)
+      setTimeout(() => {
+        setSleep(false)
+      }, 36000)
+    }
   }
-// 
 
   const buttonEat = () => {
-    setEat(true)
-    setTimeout(()=> {
-      setEat(false)
-    }, 10000)
+    if (clean === true || sleep === true) {
+      return
+    } else {
+      setEat(true)
+      setTimeout(() => {
+        setEat(false)
+      }, 10000)
+    }
   }
 
   return (
@@ -179,7 +191,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
 
           <div className="nes-container is-centered col-lg-8 col-sm-12 status">
-            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat}/>
+            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat} />
           </div>
           <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
             <ul>
