@@ -130,7 +130,6 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
       {isLoggedIn ? (
         <div className='row'>
 
-          {/* // <Voice /> */}
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{backgroundImage: `url(${shrubBG})`}}>
 
             <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
@@ -162,7 +161,8 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className='notLogged'>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            {/* {<Voice />} */}
+            { {<Voice />} }
+
           </div>
         )}
     </div>

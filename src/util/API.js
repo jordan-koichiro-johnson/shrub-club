@@ -123,7 +123,7 @@ const API = {
     },
     updateShrub: (shrubObj) => {
         return fetch(`${URL_PREFIX}/api/shrub/update`, {
-            method: "POST",
+            method: "PUT",
             body: JSON.stringify(shrubObj),
             headers: {
                 "Content-Type": "application/json"
