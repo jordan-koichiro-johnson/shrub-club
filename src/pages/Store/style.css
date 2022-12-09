@@ -1,10 +1,13 @@
-
 .chestImg {
     position: relative;
     width: 15%;
     transform: translate(.5vw, -1vh);
 }
-
+.itemImg {
+    position: absolute;
+    width: 15%;
+    transform: translate(.5vw, -1vh);
+}
 .btns {
     justify-content: space-around;
     display: flex;
