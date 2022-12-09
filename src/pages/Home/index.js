@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
@@ -17,6 +17,12 @@ import fourPM from '../../util/time/7.4pm.png';
 import sixPM from '../../util/time/8.6pm.png';
 import eightPM from '../../util/time/9.8pm.png';
 import tenPM from '../../util/time/10.10pm.png';
+import titlePic from '../../util/title.png';
+
+// option image 
+import SleepImg from "../../assets/options/bed.png"
+import Eating from "../../assets/options/waterpot.png"
+import Cleaning from "../../assets/options/clean.png"
 
 let shrubBG = "";
 const today = new Date();
@@ -124,6 +130,43 @@ switch (hour) {
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
 
+  const [sleep, setSleep] = useState(false);
+  const [clean, setClean] = useState(false);
+  const [eat, setEat] = useState(false);
+
+  const buttonClean = () => {
+    if (sleep === true || eat === true) {
+      return
+    } else {
+      setClean(true)
+      setTimeout(() => {
+        setClean(false)
+      }, 5000)
+    }
+
+  }
+
+  const buttonSleep = () => {
+    if (clean === true || eat === true) {
+      return
+    } else {
+      setSleep(true)
+      setTimeout(() => {
+        setSleep(false)
+      }, 36000)
+    }
+  }
+
+  const buttonEat = () => {
+    if (clean === true || sleep === true) {
+      return
+    } else {
+      setEat(true)
+      setTimeout(() => {
+        setEat(false)
+      }, 10000)
+    }
+  }
 
   return (
     <div className="Home">
@@ -132,8 +175,8 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
 
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{ backgroundImage: `url(${shrubBG})` }}>
 
-            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
 
+            <MyShrub setSleep={setSleep} sleep={sleep} clean={clean} setClean={setClean} eat={eat} setEat={setEat} />
 
           </div>
 
@@ -150,17 +193,23 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
 
           <div className="nes-container is-centered col-lg-8 col-sm-12 status">
-            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />
+            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat} />
           </div>
-          <div className="nes-container col-lg-4 col-md-12 col-sm-12 chat">
-
+          <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
+            <ul>
+              <button onClick={buttonClean}><img src={Cleaning} /></button>
+              <button onClick={buttonSleep}><img src={SleepImg}></img></button>
+              <button onClick={buttonEat}><img src={Eating} /></button>
+            </ul>
           </div>
 
         </div>) :
         (
           <div className='notLogged'>
-            <h1>Welcome to shrub club!</h1>
-            <h2>Your Shrub is waiting for you</h2>
+
+            <div className="notLoggedDiv" style={{backgroundImage: `url(${shrubBG})`}}>
+            <img className = "notLoggedTitle" src={titlePic}/>
+            </div>
 
           </div>
         )}

@@ -2,62 +2,172 @@ import React, { useEffect, useState } from 'react'
 import API from '../../util/API'
 import './style.css'
 
-export default function ShrubStats({ profileId }) {
-    const [shurbName, setShrubName] = useState("")
-    const [shrubLevel, setShrubLevel] = useState(0)
-    const [shrubHunger, setShrubHunger] = useState(0)
-    const [shrubHappiness, setShrubHappiness] = useState(0)
-    const [shrubHygiene, setShrubHygiene] = useState(0)
-    const [shrubEnergy, setShrubEnergy] = useState(0)
+export default function ShrubStats({ clean, sleep, eat }) {
+    const [optionData, setOptionData] = useState(false)
+    const [shrubData, setShrubData] = useState("")
+    const [shrubHygiene, setShrubHygiene] = useState("")
+    const [shrubEat, setShrubEat] = useState("")
+    const [shrubEnergy, setShrubEnergy] = useState("")
 
 
     useEffect(() => {
         const token = localStorage.getItem("token")
         API.findcurrentUser(token).then(data => {
             console.log(data)
-            setShrubName(data.Shrub.name)
-            setShrubLevel(data.days)
-            setShrubHunger(data.Shrub.hunger)
-            setShrubHappiness(data.Shrub.happiness)
+            setShrubData(data.Shrub)
             setShrubHygiene(data.Shrub.hygiene)
+            setShrubEat(data.Shrub.hunger)
             setShrubEnergy(data.Shrub.energy)
-            lose(data);
+            if (data.Shrub.hygiene < 0) {
+                API.updateShrub({
+                    name: data.Shrub.name,
+                    level: data.Shrub.level,
+                    hunger: data.Shrub.hunger - 5,
+                    hygiene: 0,
+                    happiness: data.Shrub.happiness,
+                    energy: data.Shrub.energy - 1,
+                    ProfileId: data.Shrub.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                })
+            } else if (data.Shrub.hunger < 0) {
+                API.updateShrub({
+                    name: data.Shrub.name,
+                    level: data.Shrub.level,
+                    hunger: 0,
+                    hygiene: data.Shrub.hygiene - 5,
+                    happiness: data.Shrub.happiness,
+                    energy: data.Shrub.energy - 1,
+                    ProfileId: data.Shrub.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                })
+            } else if (data.Shrub.energy < 0) {
+                API.updateShrub({
+                    name: data.Shrub.name,
+                    level: data.Shrub.level,
+                    hunger: data.Shrub.hunger - 5,
+                    hygiene: data.Shrub.hygiene - 5,
+                    happiness: data.Shrub.happiness,
+                    energy: 0,
+                    ProfileId: data.Shrub.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                })
+            } else {
+                API.updateShrub({
+                    name: data.Shrub.name,
+                    level: data.Shrub.level,
+                    hunger: data.Shrub.hunger - 5,
+                    hygiene: data.Shrub.hygiene - 5,
+                    happiness: data.Shrub.happiness,
+                    energy: data.Shrub.energy - 5,
+                    ProfileId: data.Shrub.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                })
+            }
         })
-    }, [])
+    }, [optionData])
 
-    const lose = (data) => {
-        console.log(data)
-        if(shrubHygiene > 0) {
-            setShrubHygiene(shrubHygiene-5)
-        } else if (shrubHygiene === 0) {
-            setShrubHygiene(0)
+    useEffect(() => {
+        if (clean === true) {
+            if (shrubHygiene >= 100) {
+                alert("Shrub is already clean")
+                return
+            } else {
+                API.updateShrub({
+                    name: shrubData.name,
+                    level: shrubData.level,
+                    hunger: shrubData.hunger,
+                    hygiene: 100,
+                    happiness: shrubData.happiness,
+                    energy: shrubData.energy,
+                    ProfileId: shrubData.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                    setShrubHygiene(100)
+                    if (optionData === true) {
+                        setOptionData(false)
+                    } else if (optionData === false) {
+                        setOptionData(true)
+                    }
+                })
+            }
+        } else {
+            return
         }
-        console.log(profileId)
-        API.updateShrub({
-            name: shurbName,
-            level: shrubLevel,
-            hunger: shrubHunger,
-            hygiene: shrubHygiene,
-            happiness: shrubHappiness,
-            energy: shrubEnergy,
-            ProfileId: data.Shrub.ProfileId,
-        }).then(data => {
-            console.log(data)
-        })
-        console.log(shrubHygiene)
-    }
+    }, [clean])
+
+    useEffect(() => {
+        if (sleep === true) {
+            if (shrubEnergy >= 100) {
+                alert("full energy")
+                return
+            } else {
+                do {
+                    setTimeout(() => {
+                        API.updateShrub({
+                            name: shrubData.name,
+                            level: shrubData.level,
+                            hunger: shrubData.hunger - 2,
+                            hygiene: shrubData.hygiene - 1,
+                            happiness: shrubData.happiness - 1,
+                            energy: shrubData.energy + 10,
+                            ProfileId: shrubData.ProfileId,
+                        }).then(data => {
+                            console.log(data)
+                            setShrubEnergy(shrubEnergy + 10)
+                            if (optionData === true) {
+                                setOptionData(false)
+                            } else if (optionData === false) {
+                                setOptionData(true)
+                            }
+                        })
+                    }, 100)
+                } while (shrubEnergy === 100)
+            }
+        } else {
+            return
+        }
+    }, [sleep])
+
+    useEffect(() => {
+        if (eat === true) {
+            if (shrubEat >= 100) {
+                alert("Shrub is already full")
+                return
+            } else {
+                console.log("eat")
+                API.updateShrub({
+                    name: shrubData.name,
+                    level: shrubData.level,
+                    hunger: shrubData.hunger + 25,
+                    hygiene: shrubData.hygiene,
+                    happiness: shrubData.happiness,
+                    energy: shrubData.energy,
+                    ProfileId: shrubData.ProfileId,
+                }).then(data => {
+                    console.log(data)
+                    setShrubEat(shrubEat + 25)
+                })
+            }
+        } else {
+            return
+        }
+    }, [eat])
 
     return (
         <div className="statsBars">
             <div className='make-this-not-clip'>
 
-                <p>Level {1 + parseInt(shrubLevel / 100)}</p>
-                <progress className="nes-progress" value={shrubLevel % 100} max="100"></progress>
+                <p>Level {1 + parseInt(shrubData.level / 100)}</p>
+                <progress className="nes-progress" value={shrubData.level % 100} max="100"></progress>
             </div>
             <div>
 
                 <p>Hunger</p>
-                <progress className="nes-progress is-success" value={shrubHunger} max="100"></progress>
+                <progress className="nes-progress is-success" value={shrubEat - 5} max="100"></progress>
             </div>
             <div>
 
@@ -67,12 +177,12 @@ export default function ShrubStats({ profileId }) {
             <div>
 
                 <p>Happiness</p>
-                <progress className="nes-progress is-warning" value={shrubHappiness} max="100"></progress>
+                <progress className="nes-progress is-warning" value={shrubData.happiness} max="100"></progress>
             </div>
             <div>
 
                 <p>Energy</p>
-                <progress className="nes-progress is-success" value={shrubEnergy} max="100"></progress>
+                <progress className="nes-progress is-success" value={shrubEnergy - 1} max="100"></progress>
             </div>
         </div>
     )

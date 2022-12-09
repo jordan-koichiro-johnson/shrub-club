@@ -44,7 +44,7 @@ function Store({ userId }) {
           text.innerHTML = ("I got you")
         } else {
           setnewItem(data.name)
-          text.innerHTML = newItem
+          text.innerHTML = data.name
           console.log(profileInfo.id)
           API.createProfileTag({
             ProfileId: profileInfo.id,
