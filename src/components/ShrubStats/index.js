@@ -22,7 +22,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
+                    hunger: data.Shrub.hunger - 2,
                     hygiene: 0,
                     happiness: data.Shrub.happiness,
                     energy: data.Shrub.energy - 1,
@@ -46,8 +46,8 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
-                    hygiene: data.Shrub.hygiene - 5,
+                    hunger: data.Shrub.hunger - 2,
+                    hygiene: data.Shrub.hygiene - 2,
                     happiness: data.Shrub.happiness,
                     energy: 0,
                     ProfileId: data.Shrub.ProfileId,
@@ -58,10 +58,10 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
+                    hunger: data.Shrub.hunger - 2,
                     hygiene: data.Shrub.hygiene - 5,
                     happiness: data.Shrub.happiness,
-                    energy: data.Shrub.energy - 5,
+                    energy: data.Shrub.energy - 2,
                     ProfileId: data.Shrub.ProfileId,
                 }).then(data => {
                     console.log(data)
@@ -142,14 +142,14 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: shrubData.name,
                     level: shrubData.level,
-                    hunger: shrubData.hunger + 25,
+                    hunger: shrubData.hunger + 50,
                     hygiene: shrubData.hygiene,
                     happiness: shrubData.happiness,
                     energy: shrubData.energy,
                     ProfileId: shrubData.ProfileId,
                 }).then(data => {
                     console.log(data)
-                    setShrubEat(shrubEat + 25)
+                    setShrubEat(shrubEat + 50)
                 })
             }
         } else {
