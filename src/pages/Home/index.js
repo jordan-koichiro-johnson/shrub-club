@@ -162,7 +162,6 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
             { {<Voice />} }
-
           </div>
         )}
     </div>
