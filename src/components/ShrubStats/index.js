@@ -14,9 +14,10 @@ export default function ShrubStats({ setProfileId, setUserId }) {
     useEffect(() => {
         const token = localStorage.getItem("token")
         API.findcurrentUser(token).then(data => {
+            console.log(data)
             setUserId(data.UserId)
             setProfileId(data.id)
-            setShrubLevel(data.Shrub.level)
+            setShrubLevel(data.days)
             setShrubHunger(data.Shrub.hunger)
             setShrubHappiness(data.Shrub.happiness)
             setShrubHygiene(data.Shrub.hygiene)
@@ -28,8 +29,8 @@ export default function ShrubStats({ setProfileId, setUserId }) {
         <div className="statsBars">
             <div className='make-this-not-clip'>
 
-                <p>Level 1</p>
-                <progress className="nes-progress" value={shrubLevel} max="100"></progress>
+                <p>Level {1 + parseInt(shrubLevel/100)}</p>
+                <progress className="nes-progress" value={shrubLevel%100} max="100"></progress>
             </div>
             <div>
 

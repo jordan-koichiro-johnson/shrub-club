@@ -3,6 +3,7 @@ import "./style.css"
 import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
 import ShrubStats from '../../components/ShrubStats'
+
 //background images
 import midnight from '../../util/time/11.12am.png';
 import twoAM from '../../util/time/12.2am.png';
@@ -16,7 +17,6 @@ import fourPM from '../../util/time/7.4pm.png';
 import sixPM from '../../util/time/8.6pm.png';
 import eightPM from '../../util/time/9.8pm.png';
 import tenPM from '../../util/time/10.10pm.png';
-// import Voice from './voice/index.js'
 
 let shrubBG = "";
 const today = new Date();
@@ -133,7 +133,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           {/* // <Voice /> */}
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{backgroundImage: `url(${shrubBG})`}}>
 
-            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId}/>
+            <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
 
 
           </div>
@@ -162,7 +162,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className='notLogged'>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            {/* <Voice /> */}
+            {<Voice />}
           </div>
         )}
     </div>
