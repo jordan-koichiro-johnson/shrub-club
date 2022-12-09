@@ -17,6 +17,7 @@ import fourPM from '../../util/time/7.4pm.png';
 import sixPM from '../../util/time/8.6pm.png';
 import eightPM from '../../util/time/9.8pm.png';
 import tenPM from '../../util/time/10.10pm.png';
+import titlePic from '../../util/title.png';
 
 let shrubBG = "";
 const today = new Date();
@@ -159,8 +160,9 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
         </div>) :
         (
           <div className='notLogged'>
-            <h1>Welcome to shrub club!</h1>
-            <h2>Your Shrub is waiting for you</h2>
+            <div className="notLoggedDiv" style={{backgroundImage: `url(${shrubBG})`}}>
+            <img className = "notLoggedTitle" src={titlePic}/>
+            </div>
           </div>
         )}
     </div>
