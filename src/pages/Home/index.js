@@ -175,6 +175,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
 
           <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{ backgroundImage: `url(${shrubBG})` }}>
 
+
             <MyShrub setSleep={setSleep} sleep={sleep} clean={clean} setClean={setClean} eat={eat} setEat={setEat} />
 
           </div>
@@ -205,9 +206,11 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
         </div>) :
         (
           <div className='notLogged'>
+
             <div className="notLoggedDiv" style={{backgroundImage: `url(${shrubBG})`}}>
             <img className = "notLoggedTitle" src={titlePic}/>
             </div>
+
           </div>
         )}
     </div>

@@ -2,6 +2,9 @@ import { React, useState, useEffect } from 'react'
 import API from '../../util/API'
 import "./style.css"
 import shrub from "../../assets/sprites/Shrub.png"
+import arrow from '../../util/arrow.png'
+
+
 
 export default function Custom() {
     const token = localStorage.getItem("token")
@@ -120,37 +123,63 @@ export default function Custom() {
                 ShrubId: shrubId,
                 ItemId: data.id
             })
-        }).then(data => {console.log(data)})
+        }).then(data => { console.log(data) })
     }
 
     return (
         <div className="row">
-            <div className="nes-container is-centered col-lg-12 col-sm-12 top">
-                <ul>
-                    <button className='head' value="left" onClick={(handlehead)}>left</button>
-                    <button className='head' value="right" onClick={(handlehead)}>right</button>
-                </ul>
-
-                <div className='shrubpic'>
-                    <img src={shrub} />
-                    <img src={require(`../../assets/sprites/${headItem}.png`)} />
-                    <img src={require(`../../assets/sprites/${mouthItem}.png`)} />
-                    <img src={require(`../../assets/sprites/${eyeItem}.png`)} />
-                    <p>{`../../assets/sprites/${mouthItem}.png`}</p>
+            <div className="nes-container is-centered col-lg-12 col-sm-12 selectTop">
+                <div className='leftCell'>
+                    <div className='gridCell'>
+                        <button className='head arrow left' value="left" onClick={(handlehead)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
+                    <div className='gridCell'>
+                        <button className='eye arrow left' value="left" onClick={(handleeye)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
+                    <div className='gridCell'>
+                        <button className='mouth arrow left' value="left" onClick={(handlemouth)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
                 </div>
 
-                <button className='eye' value="left" onClick={(handleeye)}>left</button>
-                <button className='eye' value="right" onClick={(handleeye)}>right</button>
-                <button className='mouth' value="left" onClick={(handlemouth)}>left</button>
-                <button className='mouth' value="right" onClick={(handlemouth)}>right</button>
+                <div className='shrubpic'>
+                    <div className='pictures'>
+                        <img src={shrub} />
+                    </div>
+                    <div className='pictures'>
+                        <img className='pictures' src={require(`../../assets/sprites/${headItem}.png`)} />
+                    </div>
+                    <div className='pictures'>
+                        <img className='pictures' src={require(`../../assets/sprites/${mouthItem}.png`)} />
+                    </div>
+                    <div className='pictures'>
+                        <img className='pictures' src={require(`../../assets/sprites/${eyeItem}.png`)} />
+                    </div>
+                </div>
+                <div className='rightCell'>
+                    <div className='gridCell'>
+                        <button className='head arrow' value="right" onClick={(handlehead)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
+
+
+                    <div>
+                        <button className='eye arrow' value="right" onClick={(handleeye)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
+
+
+
+                    <div className='gridCell'>
+                        <button className='mouth arrow' value="right" onClick={(handlemouth)}><img className='arrowPic' src={arrow}></img></button>
+                    </div>
+                </div>
+
 
             </div>
 
-            <div className="col-lg-12 col-sm-12 bottom">
-                <button type="button" className="nes-btn is-error">Take me Home!</button>
-                <button type="button" className="nes-btn is-success" onClick={saveChange}>Save Changes!</button>
+            <div className=" col-lg-12 col-sm-12 bottom change ">
+                <button type="button" className="smallButton nes-btn is-error">Take me Home!</button>
+                <button type="button" className=" nes-btn is-success" onClick={saveChange}>Save Changes!</button>
             </div>
 
-        </div>
+        </div >
     )
 }

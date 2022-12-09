@@ -3,16 +3,78 @@ body {
     background-color: rgba(26, 59, 26, 0.712);
 }
 
+button {}
+
+.selectTop {
+
+    background-image: url('../../util/characterBG.png');
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.selectTop img {
+    height: 50%;
+    position: relative;
+    transform: translate(0vw, 0vh);
+}
+
+.gridCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .row {
-    margin-left: 2rem; margin-right: 2rem;
+
+    margin-top: 10vh;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
 }
 
 .row nav {
-    padding: 20px; border-bottom: 3px solid #ccc; margin-bottom: 60px
+    border-bottom: 3px solid #ccc;
 }
 
 .bottom {
-    display: flex; justify-content: space-around;
-      align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.arrowPic {
+    width: 10vw;
+}
+
+.shrubpic {
+    height: 70vh;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.pictures {
+    overflow-y: auto;
+    width: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.left {
+    transform: scaleX(-1);
+}
+
+.pictures img {
+
+    width: inherit;
+}
+
+@media (max-width: 1145px) {
+    .arrowPic {
+        width: 10vw;
+    }
 }
