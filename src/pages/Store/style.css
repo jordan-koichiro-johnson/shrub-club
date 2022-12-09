@@ -1,5 +1,8 @@
-.img {
-    width: 10%;
+
+.chestImg {
+    position: relative;
+    width: 15%;
+    transform: translate(.5vw, -1vh);
 }
 
 .btns {
@@ -8,5 +11,26 @@
 }
 
 .shopBody {
-    margin: 20vh;
+    margin: 20vw;
+}
+
+.containerBG {
+    background-color: white;
+}
+
+.chestBG {
+    height: fit-content;
+    background-color: burlywood;
+}
+
+.balance {
+    position: absolute;
+    right: 2%;
+}
+
+@media (max-width: 1000px) {
+
+    .chestBG {
+        height: 30vh;
+    }
 }
