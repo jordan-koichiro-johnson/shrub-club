@@ -1,0 +1,17 @@
+.chat {
+    margin-left: 2rem; margin-right: 2rem;
+}
+
+.box {
+    /* background-image: url('../../util/characterBG.png');  */
+    width: 35%;
+}
+
+.box p {
+    color: lime;
+}
+
+.bodt {
+    display: flex; justify-content: space-around;
+      align-items: center;
+}
