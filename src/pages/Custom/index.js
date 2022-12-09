@@ -40,9 +40,11 @@ export default function Custom() {
     const [eyenum, seteyenum] = useState(0)
     const [mouthnum, setmouthnum] = useState(0)
 
-    function handlehead(e) {
+    const handlehead = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
+        console.log("click")
+        console.log(e.target.getAttribute('value'))
+        console.log(headnum)
         if (e.target.value === "left") {
             if (headnum === 0) {
                 setheadnum(headArray.length - 1)
@@ -131,13 +133,13 @@ export default function Custom() {
             <div className="nes-container is-centered col-lg-12 col-sm-12 selectTop">
                 <div className='leftCell'>
                     <div className='gridCell'>
-                        <button className='head arrow left' value="left" onClick={(handlehead)}><img className='arrowPic' src={arrow}></img></button>
+                        <button className='head arrow left' value="left" ><img onClick={handlehead} value="left" className='arrowPic' src={arrow}></img></button>
                     </div>
                     <div className='gridCell'>
-                        <button className='eye arrow left' value="left" onClick={(handleeye)}><img className='arrowPic' src={arrow}></img></button>
+                        <button className='eye arrow left' value="left" onClick={handleeye}><img className='arrowPic' src={arrow}></img></button>
                     </div>
                     <div className='gridCell'>
-                        <button className='mouth arrow left' value="left" onClick={(handlemouth)}><img className='arrowPic' src={arrow}></img></button>
+                        <button className='mouth arrow left' value="left" onClick={handlemouth}><img value="left" className='arrowPic' src={arrow}></img></button>
                     </div>
                 </div>
 
