@@ -23,103 +23,103 @@ const today = new Date();
 let hour = today.getHours();
 console.log(hour);
 switch (hour) {
-    case 0:
-      shrubBG = midnight;
+  case 0:
+    shrubBG = midnight;
     break;
 
-    case 1:
-      shrubBG = midnight;
+  case 1:
+    shrubBG = midnight;
     break;
 
-    case 2:
-      shrubBG = twoAM;
+  case 2:
+    shrubBG = twoAM;
     break;
 
-    case 3:
-      shrubBG = twoAM;
+  case 3:
+    shrubBG = twoAM;
     break;
 
-    case 4:
-      shrubBG = twoAM;
+  case 4:
+    shrubBG = twoAM;
     break;
 
-    case 5:
-      shrubBG = fiveAM;
+  case 5:
+    shrubBG = fiveAM;
     break;
 
-    case 6:
-      shrubBG = fiveAM;
+  case 6:
+    shrubBG = fiveAM;
     break;
 
-    case 7:
-      shrubBG = sevenAM;
+  case 7:
+    shrubBG = sevenAM;
     break;
 
-    case 8:
-      shrubBG = sevenAM;
+  case 8:
+    shrubBG = sevenAM;
     break;
 
-    case 9:
-      shrubBG = nineAM;
+  case 9:
+    shrubBG = nineAM;
     break;
 
-    case 10:
-      shrubBG = nineAM;
+  case 10:
+    shrubBG = nineAM;
     break;
 
-    case 11:
-      shrubBG = elevenAM;
+  case 11:
+    shrubBG = elevenAM;
     break;
 
-    case 12:
-      shrubBG = noon;
+  case 12:
+    shrubBG = noon;
     break;
 
-    case 13:
-      shrubBG = noon;
+  case 13:
+    shrubBG = noon;
     break;
 
-    case 14:
+  case 14:
     shrubBG = twoPM;
     break;
 
-    case 15:
+  case 15:
     shrubBG = twoPM;
     break;
 
-    case 16:
-      shrubBG = fourPM;
+  case 16:
+    shrubBG = fourPM;
     break;
 
-    case 17:
-      shrubBG = fourPM;
+  case 17:
+    shrubBG = fourPM;
     break;
 
-    case 18:
-      shrubBG = sixPM;
+  case 18:
+    shrubBG = sixPM;
     break;
 
-    case 19:
-      shrubBG = sixPM;
+  case 19:
+    shrubBG = sixPM;
     break;
 
-    case 20:
-      shrubBG = eightPM;
+  case 20:
+    shrubBG = eightPM;
     break;
 
-    case 21:
-      shrubBG = eightPM;
+  case 21:
+    shrubBG = eightPM;
     break;
 
-    case 22:
-      shrubBG = tenPM;
+  case 22:
+    shrubBG = tenPM;
     break;
 
-    case 23:
-      shrubBG = tenPM;
+  case 23:
+    shrubBG = tenPM;
     break;
 
-   
+
 }
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
@@ -130,7 +130,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
       {isLoggedIn ? (
         <div className='row'>
 
-          <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{backgroundImage: `url(${shrubBG})`}}>
+          <div className="nes-container is-centered col-lg-9 col-sm-12 shrub" style={{ backgroundImage: `url(${shrubBG})` }}>
 
             <MyShrub userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} shrubId={shrubId} setShrubId={setShrubId} />
 
@@ -161,7 +161,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className='notLogged'>
             <h1>Welcome to shrub club!</h1>
             <h2>Your Shrub is waiting for you</h2>
-            { {<Voice />} }
+
           </div>
         )}
     </div>
