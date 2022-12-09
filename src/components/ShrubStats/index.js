@@ -28,7 +28,7 @@ export default function ShrubStats({ profileId }) {
     const lose = (data) => {
         console.log(data)
         if(shrubHygiene > 0) {
-            setShrubHygiene(shrubHygiene-10)
+            setShrubHygiene(shrubHygiene-5)
         } else if (shrubHygiene === 0) {
             setShrubHygiene(0)
         }
