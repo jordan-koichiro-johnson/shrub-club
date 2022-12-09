@@ -1,6 +1,6 @@
 import './boggle.css'
 import Letter from './boggleComponents/letters'
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from '../../../util/API';
 
 
@@ -112,25 +112,23 @@ export function Boggle() {
         setStyle(Array(16).fill(''))
     }
 
-    const [profileId, setProfileId] = useState(0);
+    const [shrubInfo, setShrubInfo] = useState(0);
 
     function submit() {
         let wordString = word.join('')
         if (submittedWords.indexOf(wordString) < 0) {
-
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordString}`)
                 .then(response => {
                     if (response.status === 200) {
                         // words are correctly guessed TODO: API call to increase shrub level and money
                         const token = localStorage.getItem("token")
                         API.findcurrentUser(token).then(data => {
-                            const profileData = data;
-                            setProfileId(data.id)
-                            console.log(profileData)
+                            setShrubInfo(data.Shrub)
+                            console.log(shrubInfo)
                             API.updateProfile({
-                                money: profileData.money + 10, 
-                                days: profileData.days + 10,
-                                UserId: profileData.UserId
+                                money: data.money + 10, 
+                                days: data.days + 10,
+                                UserId: data.UserId
                             })
                         })
                         submitWord([...submittedWords, wordString])
@@ -145,6 +143,17 @@ export function Boggle() {
         } else {
             alertFind('Already Submitted')
         }
+        API.updateShrub({
+            name: shrubInfo.name,
+            level: shrubInfo.level,
+            hunger: shrubInfo.hunger-1,
+            hygiene: shrubInfo.hygiene,
+            happiness: shrubInfo.happiness-2,
+            energy: shrubInfo.energy-2,
+            ProfileId: shrubInfo.ProfileId
+        }).then(data => {
+            console.log(data)
+        })
     }
 
     return (
