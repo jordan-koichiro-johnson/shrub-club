@@ -9,15 +9,13 @@ button {
 }
 
 .Navbar {
-    height: 20vh;
     border: 5px solid black;
     position: fixed;
     width: 100vw;
     height: 10vh;
-    border-bottom: 3px solid #ccc;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-image: url('../../util/Letitia\ \(blue\ and\ yellow\)\ \(small\).jpg');
+    background-image: url('../../util/bricks.png');
     z-index: 1;
     align-items: center;
 
@@ -38,7 +36,6 @@ button {
 }
 
 .nav-link {
-
     display: flex;
     justify-content: center;
 }
