@@ -126,11 +126,12 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
   const navigate = useNavigate();
 
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/")
-    }
-  }, [isLoggedIn])
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     console.log(isLoggedIn)
+  //     navigate("/")
+  //   }
+  // }, [isLoggedIn])
 
   const handleSubmitSubmit = e => {
     e.preventDefault();
@@ -150,6 +151,7 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
         userName: userSignupId,
         password: userSignupPassword
       }).then(data => {
+        console.log(data)
         if (data.token) {
           setUserId(data.user.id)
           setToken(data.token)
@@ -173,6 +175,7 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
         ProfileId: data.id,
       }).then(data => {
         console.log(data)
+        navigate("/")
       })
     })
   }
