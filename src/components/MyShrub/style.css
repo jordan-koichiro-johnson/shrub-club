@@ -1,36 +1,13 @@
 .GameSelect {
     position: relative;
+    overflow-y: hidden;
 }
 
 .clothes {
     width: 70vw;
-    height: 70vh;
+    height: inherit;
 
-}
-
-
-img {
-    position: absolute;
-
-    transform: translate(-10vw, -10vh);
-}
-
-.description {
-    font-size: 100%;
-    position: absolute;
-    transform: translate(15vw, 60vh);
-    font-size: 1rem;
-}
-
-
-@media (max-width: 1000px) {
-
-
-    img {
-        position: absolute;
-
-        transform: translate(-40vw, -10vh);
-    }
+    overflow-y: hidden;
 }
 
 .top img {
@@ -42,3 +19,26 @@ img {
     background-image: url('../../util/characterBG.png');
 
 }
+
+.myShrubPic {
+
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.description {
+    font-size: 100%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    text-shadow: -1px 1px 0 #000,
+        1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+}
+
+@media (max-width: 1000px) {}

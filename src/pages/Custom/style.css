@@ -3,8 +3,6 @@ body {
     background-color: rgba(26, 59, 26, 0.712);
 }
 
-button {}
-
 .selectTop {
 
     background-image: url('../../util/characterBG.png');
@@ -29,7 +27,6 @@ button {}
 
 .row {
 
-    margin-top: 10vh;
     margin-left: 2rem;
     margin-right: 2rem;
 
