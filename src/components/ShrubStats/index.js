@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import API from '../../util/API'
 import './style.css'
 
 export default function ShrubStats({ clean, sleep, eat }) {
+    const navigate = useNavigate();
     const [optionData, setOptionData] = useState(false)
     const [shrubData, setShrubData] = useState("")
     const [shrubHygiene, setShrubHygiene] = useState("")
@@ -16,13 +18,14 @@ export default function ShrubStats({ clean, sleep, eat }) {
             console.log(data)
             setShrubData(data.Shrub)
             setShrubHygiene(data.Shrub.hygiene)
-            setShrubEat(data.Shrub.hunger)
             setShrubEnergy(data.Shrub.energy)
+            setShrubEat(data.Shrub.hunger)
+            prograssbar()
             if (data.Shrub.hygiene < 0) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
+                    hunger: data.Shrub.hunger - 2,
                     hygiene: 0,
                     happiness: data.Shrub.happiness,
                     energy: data.Shrub.energy - 1,
@@ -46,8 +49,8 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
-                    hygiene: data.Shrub.hygiene - 5,
+                    hunger: data.Shrub.hunger - 2,
+                    hygiene: data.Shrub.hygiene - 2,
                     happiness: data.Shrub.happiness,
                     energy: 0,
                     ProfileId: data.Shrub.ProfileId,
@@ -58,17 +61,22 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: data.Shrub.name,
                     level: data.Shrub.level,
-                    hunger: data.Shrub.hunger - 5,
+                    hunger: data.Shrub.hunger - 2,
                     hygiene: data.Shrub.hygiene - 5,
                     happiness: data.Shrub.happiness,
-                    energy: data.Shrub.energy - 5,
+                    energy: data.Shrub.energy - 2,
                     ProfileId: data.Shrub.ProfileId,
                 }).then(data => {
                     console.log(data)
                 })
             }
+            console.log(shrubEat)
+        }).catch(err => {
+            localStorage.removeItem("token")
+            navigate("/")
+            console.log(err)
         })
-    }, [optionData])
+    }, [shrubHygiene, shrubEat, shrubEnergy])
 
     useEffect(() => {
         if (clean === true) {
@@ -105,27 +113,25 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 alert("full energy")
                 return
             } else {
-                do {
-                    setTimeout(() => {
-                        API.updateShrub({
-                            name: shrubData.name,
-                            level: shrubData.level,
-                            hunger: shrubData.hunger - 2,
-                            hygiene: shrubData.hygiene - 1,
-                            happiness: shrubData.happiness - 1,
-                            energy: shrubData.energy + 10,
-                            ProfileId: shrubData.ProfileId,
-                        }).then(data => {
-                            console.log(data)
-                            setShrubEnergy(shrubEnergy + 10)
-                            if (optionData === true) {
-                                setOptionData(false)
-                            } else if (optionData === false) {
-                                setOptionData(true)
-                            }
-                        })
-                    }, 100)
-                } while (shrubEnergy === 100)
+                setTimeout(() => {
+                    API.updateShrub({
+                        name: shrubData.name,
+                        level: shrubData.level,
+                        hunger: shrubData.hunger - 2,
+                        hygiene: shrubData.hygiene - 1,
+                        happiness: shrubData.happiness - 1,
+                        energy: shrubData.energy + 50,
+                        ProfileId: shrubData.ProfileId,
+                    }).then(data => {
+                        console.log(data)
+                        setShrubEnergy(shrubEnergy + 50)
+                        if (optionData === true) {
+                            setOptionData(false)
+                        } else if (optionData === false) {
+                            setOptionData(true)
+                        }
+                    })
+                }, 100)
             }
         } else {
             return
@@ -142,20 +148,45 @@ export default function ShrubStats({ clean, sleep, eat }) {
                 API.updateShrub({
                     name: shrubData.name,
                     level: shrubData.level,
-                    hunger: shrubData.hunger + 25,
+                    hunger: shrubData.hunger + 50,
                     hygiene: shrubData.hygiene,
                     happiness: shrubData.happiness,
                     energy: shrubData.energy,
                     ProfileId: shrubData.ProfileId,
                 }).then(data => {
                     console.log(data)
-                    setShrubEat(shrubEat + 25)
+                    setShrubEat(shrubEat + 50)
                 })
             }
         } else {
             return
         }
     }, [eat])
+
+    const prograssbar = () => {
+        // between 100 - 60
+        const bar = document.querySelectorAll(".nes-progress")
+        console.log(bar)
+        compare(shrubEat, bar[1])
+        compare(shrubHygiene, bar[2])
+        compare(shrubData.happiness, bar[3])
+        compare(shrubEnergy, bar[4])
+    }
+
+    const compare = (pro, part) => {
+        console.log(pro, part)
+        part.classList.remove("is-success")
+        part.classList.remove("is-warning")
+        part.classList.remove("is-error")
+        if (pro > 70){
+            console.log(pro)
+            part.classList.add("is-success")
+        } else if (pro <= 70 && 40 < pro) {
+            part.classList.add("is-warning")
+        } else if (pro <= 40) {
+            part.classList.add("is-error")
+        }
+    }
 
     return (
         <div className="statsBars">
@@ -167,7 +198,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
             <div>
 
                 <p>Hunger</p>
-                <progress className="nes-progress is-success" value={shrubEat - 5} max="100"></progress>
+                <progress className="nes-progress" value={shrubEat} max="100"></progress>
             </div>
             <div>
 
@@ -182,7 +213,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
             <div>
 
                 <p>Energy</p>
-                <progress className="nes-progress is-success" value={shrubEnergy - 1} max="100"></progress>
+                <progress className="nes-progress is-success" value={shrubEnergy} max="100"></progress>
             </div>
         </div>
     )
