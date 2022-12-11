@@ -195,8 +195,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
                 <li><Link to="customize">Customize</Link></li>
                 <li><Link to="chat">Chat</Link></li>
                 <li><Link to="store">Store</Link></li>
-                <li>Casino</li>
-                <li>Options</li>
+
               </ul>
             </div>
           </div>
@@ -216,8 +215,8 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
         (
           <div className='notLogged'>
 
-            <div className="notLoggedDiv" style={{backgroundImage: `url(${shrubBG})`}}>
-            <img className = "notLoggedTitle" src={titlePic}/>
+            <div className="notLoggedDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
+              <img className="notLoggedTitle" src={titlePic} />
             </div>
 
           </div>

@@ -56,7 +56,7 @@ function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLog
         <label>Password</label>
         <input className="nes-input password" name="password" type="password" value={userLoginPassword} onChange={e => setUserLoginPassword(e.target.value)} />
         <h3 className='alert'> Ready to play with your Shrub?</h3>
-        <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Create</button>
+        <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Log In</button>
       </form>
     </div>
   )

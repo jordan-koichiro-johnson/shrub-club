@@ -3,9 +3,10 @@ import './style.css'
 
 import { Randomize, Boggle } from './boggle/boggle'
 
-Randomize()
+
 
 export default function GameSelect() {
+  Randomize()
   return (
     <div className="GameSelect">
 
