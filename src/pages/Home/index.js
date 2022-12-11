@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
@@ -130,6 +130,15 @@ switch (hour) {
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
 
+  // useEffect(() => {
+  //   if(isLoggedIn === false) {
+  //     localStorage.removeItem("token");
+  //     setToken(0)
+  //   } else {
+  //     return;
+  //   }
+  // }, [])
+  
   const [sleep, setSleep] = useState(false);
   const [clean, setClean] = useState(false);
   const [eat, setEat] = useState(false);
