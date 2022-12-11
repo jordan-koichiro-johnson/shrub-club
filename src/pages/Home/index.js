@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
@@ -130,6 +130,15 @@ switch (hour) {
 
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
 
+  // useEffect(() => {
+  //   if(isLoggedIn === false) {
+  //     localStorage.removeItem("token");
+  //     setToken(0)
+  //   } else {
+  //     return;
+  //   }
+  // }, [])
+  
   const [sleep, setSleep] = useState(false);
   const [clean, setClean] = useState(false);
   const [eat, setEat] = useState(false);
@@ -186,8 +195,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
                 <li><Link to="customize">Customize</Link></li>
                 <li><Link to="chat">Chat</Link></li>
                 <li><Link to="store">Store</Link></li>
-                <li>Casino</li>
-                <li>Options</li>
+
               </ul>
             </div>
           </div>
@@ -207,8 +215,8 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
         (
           <div className='notLogged'>
 
-            <div className="notLoggedDiv" style={{backgroundImage: `url(${shrubBG})`}}>
-            <img className = "notLoggedTitle" src={titlePic}/>
+            <div className="notLoggedDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
+              <img className="notLoggedTitle" src={titlePic} />
             </div>
 
           </div>

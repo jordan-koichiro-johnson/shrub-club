@@ -33,7 +33,9 @@ export default function Navbar(props) {
 
           {props.isLoggedIn ? (<Link to="/gameselect" className={'nav-link'}>
             <div className={'nes-btn'}>
-              Game Select
+
+              Shrubble
+
             </div>
           </Link>) :
             (<Link to="/Login" className={'nav-link'}>

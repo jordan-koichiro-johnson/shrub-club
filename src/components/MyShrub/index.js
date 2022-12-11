@@ -14,7 +14,7 @@ export default function MyShrub({ clean, sleep, eat }) {
   const [shrubstatusHunger, setShrubstatusHunger] = useState("default")
   const [shrubOption, setShrubOption] = useState("default")
   const [statusEye, setStatusEye] = useState("eye")
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token")
 
@@ -26,8 +26,10 @@ export default function MyShrub({ clean, sleep, eat }) {
       } else if (data.Shrub.happiness < 30) {
         setShrubstatusHappy("sad")
       }
-      if (data.Shrub.Hunger < 30) {
+      if (data.Shrub.hunger < 30) {
         setShrubstatusHunger("mad")
+      } else {
+        setShrubstatusHunger("default")
       }
     }).then(data => {
       API.getShrubTagCurrent(token).then(data => {
@@ -44,7 +46,7 @@ export default function MyShrub({ clean, sleep, eat }) {
         })
       })
     })
-  }, [])
+  }, [clean, sleep, eat])
 
   useEffect(() => {
     console.log(clean)
@@ -76,14 +78,14 @@ export default function MyShrub({ clean, sleep, eat }) {
   return (
     <div className="GameSelect">
       <div className='clothes'>
-        <img src={color} />
-        <img src={shrub} />
-        <img src={require(`../../assets/options/${statusEye}.png`)} />
-        <img src={require(`../../assets/sprites/${headItem}.png`)} />
-        <img src={require(`../../assets/sprites/${mouthItem}.png`)} />        <img src={require(`../../assets/sprites/${shrubstatusHunger}.png`)} />
-        <img src={require(`../../assets/sprites/${shrubstatusHappy}.png`)} />
-        <img src={require(`../../assets/sprites/${eyeItem}.png`)} />
-        <img src={require(`../../assets/options/${shrubOption}.png`)} />
+        <img className='myShrubPic' src={color} />
+        <img className='myShrubPic' src={shrub} />
+        <img className='myShrubPic' src={require(`../../assets/options/${statusEye}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/sprites/${headItem}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/sprites/${mouthItem}.png`)} />        <img src={require(`../../assets/sprites/${shrubstatusHunger}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/sprites/${shrubstatusHappy}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/sprites/${eyeItem}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/options/${shrubOption}.png`)} />
         <p className={'description'}>{shurbName} smells like blue cheese.</p>
       </div>
 
