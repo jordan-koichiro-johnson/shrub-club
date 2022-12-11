@@ -33,7 +33,7 @@ function Store({ userId }) {
           days: profileInfo.days,
           UserId: profileInfo.UserId
         })
-      }, 5000);
+      }, 3000);
       let number = Math.floor(Math.random() * 25) + 1
       console.log(number)
       setChestImg("chestopen")

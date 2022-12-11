@@ -7,6 +7,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
     const navigate = useNavigate();
     const [optionData, setOptionData] = useState(false)
     const [shrubData, setShrubData] = useState("")
+    const [shrubLevel, setShrubLevel] = useState(0)
     const [shrubHygiene, setShrubHygiene] = useState("")
     const [shrubEat, setShrubEat] = useState("")
     const [shrubEnergy, setShrubEnergy] = useState("")
@@ -17,6 +18,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
         API.findcurrentUser(token).then(data => {
             console.log(data)
             setShrubData(data.Shrub)
+            setShrubLevel(data.days)
             setShrubHygiene(data.Shrub.hygiene)
             setShrubEnergy(data.Shrub.energy)
             setShrubEat(data.Shrub.hunger)
@@ -192,8 +194,8 @@ export default function ShrubStats({ clean, sleep, eat }) {
         <div className="statsBars">
             <div className='make-this-not-clip'>
 
-                <p>Level {1 + parseInt(shrubData.level / 100)}</p>
-                <progress className="nes-progress" value={shrubData.level % 100} max="100"></progress>
+                <p>Level {1 + parseInt(shrubLevel/100)}</p>
+                <progress className="nes-progress" value={shrubLevel % 100} max="100"></progress>
             </div>
             <div>
 

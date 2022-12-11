@@ -172,6 +172,7 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
     API.createprofile(token).then(data => {
       setProfileId(data.id)
       API.createShrub({
+        name: userSignupId,
         ProfileId: data.id,
       }).then(data => {
         console.log(data)
