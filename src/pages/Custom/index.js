@@ -4,8 +4,6 @@ import "./style.css"
 import shrub from "../../assets/sprites/Shrub.png"
 import arrow from '../../util/arrow.png'
 
-
-
 export default function Custom() {
     const token = localStorage.getItem("token")
     var headArray = [];
@@ -20,7 +18,9 @@ export default function Custom() {
         API.getProfileTag(token).then(data => {
             data.map(
                 (map) => {
+                    console.log(map)
                     API.getOneItem(map.ItemId).then(data => {
+                        console.log(data)
                         if (data.type == "head") {
                             headArray.push(data.name);
                         } else if (data.type == "eye") {
@@ -31,6 +31,7 @@ export default function Custom() {
                     })
                 })
         })
+        console.log(eyeArray)
         headArray.push("default")
         eyeArray.push("default")
         mouthArray.push("default")
