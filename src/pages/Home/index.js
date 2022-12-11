@@ -138,7 +138,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
   //     return;
   //   }
   // }, [])
-  
+
   const [sleep, setSleep] = useState(false);
   const [clean, setClean] = useState(false);
   const [eat, setEat] = useState(false);
@@ -192,7 +192,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           <div className="nes-container col-lg-3 col-md-6 col-sm-12 menu">
             <div className="lists">
               <ul className="nes-list">
-                <li><Link to="customize">Customize</Link></li>
+                <li><Link shrubBG={shrubBG} to="customize">Customize</Link></li>
                 <li><Link to="chat">Chat</Link></li>
                 <li><Link to="store">Store</Link></li>
 

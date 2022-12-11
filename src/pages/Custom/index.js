@@ -141,13 +141,13 @@ export default function Custom() {
                         <img src={shrub} />
                     </div>
                     <div className='pictures'>
-                        <img className='pictures' src={require(`../../assets/sprites/${headItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${headItem}.png`)} />
                     </div>
                     <div className='pictures'>
-                        <img className='pictures' src={require(`../../assets/sprites/${mouthItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${mouthItem}.png`)} />
                     </div>
                     <div className='pictures'>
-                        <img className='pictures' src={require(`../../assets/sprites/${eyeItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${eyeItem}.png`)} />
                     </div>
                 </div>
                 <div className='rightCell'>
@@ -174,7 +174,7 @@ export default function Custom() {
                 <a href='/'><button type="button" className="smallButton nes-btn is-error">Take me Home!</button></a>
                 <button type="button" className=" nes-btn is-success" onClick={saveChange}>Save Changes!</button>
             </div>
-            
+
         </div >
     )
 }

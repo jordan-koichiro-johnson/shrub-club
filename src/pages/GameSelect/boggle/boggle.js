@@ -1,6 +1,6 @@
 import './boggle.css'
 import Letter from './boggleComponents/letters'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from '../../../util/API';
 
 
@@ -72,6 +72,7 @@ function validClick(name, positions) {
     return Math.abs(name[0] - positions[(positions.length - 1)][0]) <= 1 && Math.abs(name[1] - positions[(positions.length - 1)][1]) <= 1
 }
 
+
 export function Boggle() {
 
     const [word, makeWord] = useState([])
@@ -80,6 +81,29 @@ export function Boggle() {
     const [style, setStyle] = useState(Array(16).fill(''))
     const [numberOfWords, wordAdded] = useState(0)
     const [alert, alertFind] = useState('')
+    const [timer, setTimer] = useState(45)
+    const [isActive, setIsActive] = useState(true)
+    useEffect(() => {
+        let interval = null;
+        if (isActive) {
+            interval = setInterval(() => {
+                setTimer(timer => timer - 1);
+            }, 1000);
+        }
+        if (timer <= 0) {
+            clearInterval(interval);
+            setTimer(45)
+            Randomize()
+            makeWord([])
+            savePosition([])
+            submitWord([])
+            setStyle(Array(16).fill(''))
+            wordAdded(0)
+            alertFind('')
+        }
+        return () => clearInterval(interval);
+    }, [isActive, timer]);
+
     function addLetter(name, newLetter) {
         if (positions.indexOf(name) < 0) {
             if (positions.length === 0 || validClick(name, positions)) {
@@ -126,7 +150,7 @@ export function Boggle() {
                             setShrubInfo(data.Shrub)
                             console.log(shrubInfo)
                             API.updateProfile({
-                                money: data.money + 10, 
+                                money: data.money + 10,
                                 days: data.days + 10,
                                 UserId: data.UserId
                             })
@@ -146,10 +170,10 @@ export function Boggle() {
         API.updateShrub({
             name: shrubInfo.name,
             level: shrubInfo.level,
-            hunger: shrubInfo.hunger-1,
+            hunger: shrubInfo.hunger - 1,
             hygiene: shrubInfo.hygiene,
-            happiness: shrubInfo.happiness-2,
-            energy: shrubInfo.energy-2,
+            happiness: shrubInfo.happiness - 2,
+            energy: shrubInfo.energy - 2,
             ProfileId: shrubInfo.ProfileId
         }).then(data => {
             console.log(data)
@@ -160,9 +184,11 @@ export function Boggle() {
         < div className={'boggleDiv'}>
 
 
-            <div className={'title'}>
+            <h1 className={'title'}>
                 Shrubble
-            </div>
+            </h1>
+            <div className={'timer'}>timer: {timer}</div>
+
             <div className={'centerBoggle'}>
 
                 <div className='boggle'>
