@@ -26,8 +26,10 @@ export default function MyShrub({ clean, sleep, eat }) {
       } else if (data.Shrub.happiness < 30) {
         setShrubstatusHappy("sad")
       }
-      if (data.Shrub.Hunger < 30) {
+      if (data.Shrub.hunger < 30) {
         setShrubstatusHunger("mad")
+      } else {
+        setShrubstatusHunger("default")
       }
     }).then(data => {
       API.getShrubTagCurrent(token).then(data => {
@@ -44,7 +46,7 @@ export default function MyShrub({ clean, sleep, eat }) {
         })
       })
     })
-  }, [])
+  }, [clean, sleep, eat])
 
   useEffect(() => {
     console.log(clean)

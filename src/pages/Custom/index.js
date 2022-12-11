@@ -56,6 +56,7 @@ export default function Custom() {
             }
         }
         setHeadItem(headArray[headnum])
+        console.log(headItem)
     }
 
     const handleeye = (e) => {
@@ -95,8 +96,6 @@ export default function Custom() {
     }
 
     const [shurbInfo, setShrubInfo] = useState();
-    // const [shrubId, setShrubId] = useState(0);
-    // const [profileId, setProfileId] = useState(0);
 
     const saveChange = (e) => {
         console.log('clieck')
@@ -175,7 +174,7 @@ export default function Custom() {
                 <a href='/'><button type="button" className="smallButton nes-btn is-error">Take me Home!</button></a>
                 <button type="button" className=" nes-btn is-success" onClick={saveChange}>Save Changes!</button>
             </div>
-
+            
         </div >
     )
 }

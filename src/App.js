@@ -35,9 +35,12 @@ function App() {
     if (storeToken) {
       API.getUserFromToken(storeToken).then(data => {
         if (data) {
+          console.log(data)
           setToken(storeToken)
           setIsLoggedIn(true)
           setUserId(data.id)
+        } else {
+          localStorage.removeItem("token")
         }
       })
     } else {
