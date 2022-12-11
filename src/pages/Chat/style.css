@@ -1,17 +1,40 @@
 .chat {
-    margin-left: 2rem; margin-right: 2rem;
+
+    margin-top: 10vh;
+}
+
+.shrubName {
+    height: 60vh;
+    overflow: hidden;
+}
+
+
+
+.shrubName img {
+    height: 50vh;
 }
 
 .box {
-    /* background-image: url('../../util/characterBG.png');  */
-    width: 35%;
+    padding: 0;
 }
 
-.box p {
+.good {
     color: lime;
 }
 
+.bad {
+    color: red;
+}
+
 .bodt {
-    display: flex; justify-content: space-around;
-      align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .row {
+        margin: 0;
+        margin-top: 10vh;
+    }
 }
