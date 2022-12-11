@@ -1,41 +1,36 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import API from '../../util/API'
 import "./style.css"
 import shrub from "../../assets/sprites/Shrub.png"
 import arrow from '../../util/arrow.png'
 
+var headArray = [];
+var eyeArray = [];
+var mouthArray = [];
+
+const token = localStorage.getItem("token")
+console.log('useeffect')
+API.getProfileTag(token).then(data => {
+    data.map(
+        (map) => {
+            API.getOneItem(map.ItemId).then(data => {
+                if (data.type === "head") {
+                    headArray.push(data.name);
+                } else if (data.type === "eye") {
+                    eyeArray.push(data.name);
+                } else if (data.type === "mouth") {
+                    mouthArray.push(data.name)
+                }
+            })
+        })
+})
+headArray.push("default")
+eyeArray.push("default")
+mouthArray.push("default")
 
 
 export default function Custom() {
     const token = localStorage.getItem("token")
-    var headArray = [];
-    var eyeArray = [];
-    var mouthArray = [];
-
-    const [headItem, setHeadItem] = useState("default")
-    const [eyeItem, setEyeItem] = useState("default")
-    const [mouthItem, setMouthItem] = useState("default")
-
-    useEffect(() => {
-        API.getProfileTag(token).then(data => {
-            data.map(
-                (map) => {
-                    API.getOneItem(map.ItemId).then(data => {
-                        if (data.type == "head") {
-                            headArray.push(data.name);
-                        } else if (data.type == "eye") {
-                            eyeArray.push(data.name);
-                        } else if (data.type == "mouth") {
-                            mouthArray.push(data.name)
-                        }
-                    })
-                })
-        })
-        headArray.push("default")
-        eyeArray.push("default")
-        mouthArray.push("default")
-    })
-
     const [headnum, setheadnum] = useState(0)
     const [eyenum, seteyenum] = useState(0)
     const [mouthnum, setmouthnum] = useState(0)
@@ -55,9 +50,9 @@ export default function Custom() {
                 setheadnum(headnum + 1)
             }
         }
-        setHeadItem(headArray[headnum])
-        console.log(headArray)
-        console.log(headItem)
+
+
+
     }
 
     const handleeye = (e) => {
@@ -75,9 +70,9 @@ export default function Custom() {
                 seteyenum(eyenum + 1)
             }
         }
-        setEyeItem(eyeArray[eyenum])
-        console.log(eyeArray)
-        console.log(eyeItem)
+
+
+
     }
 
     const handlemouth = (e) => {
@@ -95,32 +90,38 @@ export default function Custom() {
                 setmouthnum(mouthnum + 1)
             }
         }
-        setMouthItem(mouthArray[mouthnum])
-        console.log(mouthArray)
-        console.log(mouthnum)
+
+
+
     }
 
-    const [shurbInfo, setShrubInfo] = useState();
+
 
     const saveChange = (e) => {
-        console.log('clieck')
+
         API.findcurrentUser(token).then(data => {
-            setShrubInfo(data.Shrub)
-            API.deleteShrubTag({ ShrubId: shurbInfo.id }).then(data => {
-                console.log(shurbInfo)
+
+
+            console.log(data)
+            console.log(data.Shrub.id)
+            const shrubInfo = data.Shrub.id
+            console.log(shrubInfo)
+            API.deleteShrubTag({ ShrubId: shrubInfo.id }).then(data => {
+
                 console.log(data)
-                dataSave(headItem)
-                dataSave(eyeItem);
-                dataSave(mouthItem);
+                dataSave(shrubInfo, headArray[headnum])
+                dataSave(shrubInfo, eyeArray[eyenum]);
+                dataSave(shrubInfo, mouthArray[mouthnum]);
             })
+
         })
     }
 
-    const dataSave = (itemName) => {
+    const dataSave = (shrubInfo, itemName) => {
         API.getItemByName(itemName).then(data => {
             console.log(data)
             API.saveCustom({
-                ShrubId: shurbInfo.id,
+                ShrubId: shrubInfo,
                 ItemId: data.id
             })
         }).then(data => { console.log(data) })
@@ -146,13 +147,13 @@ export default function Custom() {
                         <img src={shrub} />
                     </div>
                     <div className='pictures'>
-                        <img src={require(`../../assets/sprites/${headItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${headArray[headnum]}.png`)} />
                     </div>
                     <div className='pictures'>
-                        <img src={require(`../../assets/sprites/${mouthItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${mouthArray[mouthnum]}.png`)} />
                     </div>
                     <div className='pictures'>
-                        <img src={require(`../../assets/sprites/${eyeItem}.png`)} />
+                        <img src={require(`../../assets/sprites/${eyeArray[eyenum]}.png`)} />
                     </div>
                 </div>
                 <div className='rightCell'>
