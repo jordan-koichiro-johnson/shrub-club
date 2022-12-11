@@ -1,0 +1,140 @@
+.Home {
+    width: 100vw;
+    padding-top: 10vh;
+}
+
+.notLogged {
+    padding-top: 20vh;
+    background-size: cover;
+}
+
+.notLoggedDiv {
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    left: 0px;
+    filter: brightness(90%);
+}
+
+.notLoggedTitle {
+    top: 10%;
+    left: 10%;
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.logged {
+    padding-top: 20vh;
+
+}
+
+.shrub {
+    background-size: cover;
+}
+
+.shrub img {
+    width: 70vh;
+
+}
+
+.shrub p {
+    color: white;
+}
+
+.nes-list {
+    display: grid;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    margin-left: -2rem;
+
+}
+
+.nes-list li {
+    margin-bottom: 8vh;
+}
+
+.lists {
+    overflow-y: hidden;
+}
+
+.menu {
+    display: grid;
+
+    justify-content: center;
+    align-content: center;
+    background-color: burlywood;
+}
+
+.status {
+    padding: 0;
+    background-color: burlywood;
+}
+
+.option {
+    background-color: burlywood;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.option button img {
+    width: 30%;
+    position: relative;
+}
+
+.nes-container .status {
+    padding: 0rem;
+}
+
+@media (max-width: 1000px) {
+
+
+    * {
+        overflow-x: hidden;
+    }
+
+    .chat {
+        width: 100vw;
+    }
+
+    .status {
+        width: 100vw;
+    }
+
+    .shrub {
+        width: 100vw;
+    }
+
+    .menu {
+        text-align: center;
+        width: 100vw;
+    }
+
+    .notLoggedTitle {
+        left: 15%;
+        width: 150%;
+        height: 80%;
+    }
+
+    .notLoggedDiv {
+        width: 100%;
+        height: 100%;
+    }
+}

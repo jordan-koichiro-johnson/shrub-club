@@ -1,0 +1,39 @@
+.chestImg {
+    position: relative;
+    width: 15%;
+    transform: translate(.5vw, -1vh);
+}
+.itemImg {
+    position: absolute;
+    width: 15%;
+    transform: translate(.5vw, -1vh);
+}
+.btns {
+    justify-content: space-around;
+    display: flex;
+}
+
+.shopBody {
+    margin: 20vw;
+}
+
+.containerBG {
+    background-color: white;
+}
+
+.chestBG {
+    height: fit-content;
+    background-color: burlywood;
+}
+
+.balance {
+    position: absolute;
+    right: 2%;
+}
+
+@media (max-width: 1000px) {
+
+    .chestBG {
+        height: 30vh;
+    }
+}

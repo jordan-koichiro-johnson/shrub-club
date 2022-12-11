@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+
+      font-family: 'Press Start 2P', cursive;
+      background-color: rgba(26, 59, 26, 0.712);
+
+    }
+  </style>
+
+</head>
+
+<body class="row" style="margin-left: 2rem; margin-right: 2rem;">
+  <nav style='padding: 20px; border-bottom: 3px solid #ccc; margin-bottom: 60px'>
+    <p>CoolBob</p>
+  </nav>
+
+  <div class="nes-container is-centered col-lg-12 col-sm-12"
+    style="background-image: url('../src/util/characterBG.png');">
+    <form>
+      <input name="hatLeft" type="image" src="../src/util/arrow.png" width=5%
+        style=" -webkit-transform: scaleX(-1); transform: scaleX(-1); position:absolute; top: 30%; left: 20%;">
+    </form>
+
+    <img src="../src/assets/sprites/Shrub.png" alt="character" width=35%>
+
+    <form>
+      <input name="hatRight" type="image" src="../src/util/arrow.png" width=5%
+        style="position:absolute; top: 30%; right: 20%;">
+    </form>
+
+    <form>
+      <input name="eyeLeft" type="image" src="../src/util/arrow.png" width=5%
+        style=" -webkit-transform: scaleX(-1); transform: scaleX(-1); position:absolute; top: 50%; left: 20%;">
+    </form>
+    <form>
+      <input name="eyeRight" type="image" src="../src/util/arrow.png" width=5%
+        style="position:absolute; top: 50%; right: 20%;">
+    </form>
+    <form>
+      <input name="mouthLeft" type="image" src="../src/util/arrow.png" width=5%
+        style=" -webkit-transform: scaleX(-1); transform: scaleX(-1); position:absolute; top: 70%; left: 20%;">
+    </form>
+    <form>
+      <input name="mouthRight" type="image" src="../src/util/arrow.png" width=5%
+        style="position:absolute; top: 70%; right: 20%;">
+    </form>
+  </div>
+
+  <div class="col-lg-12 col-sm-12" style="display: flex; justify-content: space-around;
+      align-items: center;">
+    <button type="button" class="nes-btn is-error">Take me Home!</button>
+    <button type="button" class="nes-btn is-success">Save Changes!</button>
+  </div>
+
+
+</body>
+
+</html>

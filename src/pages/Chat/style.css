@@ -1,0 +1,40 @@
+.chat {
+
+    margin-top: 10vh;
+}
+
+.shrubName {
+    height: 60vh;
+    overflow: hidden;
+}
+
+
+
+.shrubName img {
+    height: 50vh;
+}
+
+.box {
+    padding: 0;
+}
+
+.good {
+    color: lime;
+}
+
+.bad {
+    color: red;
+}
+
+.bodt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .row {
+        margin: 0;
+        margin-top: 10vh;
+    }
+}

@@ -1,0 +1,18 @@
+.letterComp {
+    width: fit-content;
+}
+
+.boggle-letter {
+    border: 1px solid black;
+    font-size: 24px;
+    height: 55px;
+    line-height: 50px;
+    background-color: #FFDAAF;
+    width: 55px;
+    text-align: center;
+
+}
+
+.active {
+    background-color: #CA82FF;
+}
