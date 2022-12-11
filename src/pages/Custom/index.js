@@ -56,6 +56,7 @@ export default function Custom() {
             }
         }
         setHeadItem(headArray[headnum])
+        console.log(headArray)
         console.log(headItem)
     }
 
@@ -75,6 +76,8 @@ export default function Custom() {
             }
         }
         setEyeItem(eyeArray[eyenum])
+        console.log(eyeArray)
+        console.log(eyeItem)
     }
 
     const handlemouth = (e) => {
@@ -93,6 +96,8 @@ export default function Custom() {
             }
         }
         setMouthItem(mouthArray[mouthnum])
+        console.log(mouthArray)
+        console.log(mouthnum)
     }
 
     const [shurbInfo, setShrubInfo] = useState();

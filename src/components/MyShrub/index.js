@@ -20,6 +20,7 @@ export default function MyShrub({ clean, sleep, eat }) {
 
     console.log(statusEye)
     API.findcurrentUser(token).then(data => {
+      console.log(data)
       setShrubName(data.Shrub.name)
       if (data.Shrub.happiness >= 80) {
         setShrubstatusHappy("happy")
