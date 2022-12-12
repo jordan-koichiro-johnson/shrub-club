@@ -155,29 +155,30 @@ function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLog
           setToken(data.token)
           setIsLoggedIn(true)
           localStorage.setItem("token", data.token)
+        } else {
+          document.querySelector(".username").classList.add("is-error")
+          document.querySelector(".password").classList.add("is-error")
+          document.querySelector(".alert").innerHTML = "Invalid Shrub or Password"
         }
       }).catch(err => {
         console.log(err)
-        document.querySelector(".username").classList.add("is-error")
-        document.querySelector(".password").classList.add("is-error")
-        document.querySelector(".alert").innerHTML = "Invalid Shrub or Password"
       })
     }
   }
 
   return (
-    <div className= "backgroundDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
-    <div className='login'>
-      <h1 className ="loginTitle"> Login </h1>
-      <form className='formSignup'>
-        <label>Shrub Name</label>
-        <input className="nes-input username" name="username" type="text" value={userLoginId} onChange={e => setUserLoginId(e.target.value)} />
-        <label>Password</label>
-        <input className="nes-input password" name="password" type="password" value={userLoginPassword} onChange={e => setUserLoginPassword(e.target.value)} />
-        <h3 className='alert'> Ready To Play With Your Shrub?</h3>
-        <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Login</button>
-      </form>
-    </div>
+    <div className="backgroundDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
+      <div className='login'>
+        <h1 className="loginTitle"> Login </h1>
+        <form className='formSignup'>
+          <label>Shrub Name</label>
+          <input className="nes-input username" name="username" type="text" value={userLoginId} onChange={e => setUserLoginId(e.target.value)} />
+          <label>Password</label>
+          <input className="nes-input password" name="password" type="password" value={userLoginPassword} onChange={e => setUserLoginPassword(e.target.value)} />
+          <h3 className='alert'> Ready To Play With Your Shrub?</h3>
+          <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Login</button>
+        </form>
+      </div>
     </div>
   )
 }
