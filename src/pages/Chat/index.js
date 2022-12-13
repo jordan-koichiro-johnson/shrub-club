@@ -121,7 +121,7 @@ switch (hour) {
 
 let recording = false
 
-function Chat() {
+function Chat({ shrubHappy, setShrubHappy }) {
 
     const [micActive, setMicActive] = useState('Mic')
     const [value, setValue] = useState('')
@@ -155,10 +155,12 @@ function Chat() {
     function startSpeechRecognition() {
         console.log('recognizing')
     }
+
     function endSpeechRecognition() {
         console.log('end recognizing')
         MicButton()
     }
+
     function resultSpeechRecognition(event) {
 
         setValue(event.results[0][0].transcript)
@@ -174,29 +176,31 @@ function Chat() {
 
         };
 
-        API.natural(myInit, setSentiment).then(data => {
-            const token = localStorage.getItem("token")
-            API.findcurrentUser(token).then(data => {
-                console.log(data.Shrub)
-                const shrubInfo = data.Shrub;
-                const happyup = parseInt(sentiment * 10)
-                if (shrubInfo.happiness > 100) {
-                    alert("your shub is happy enough")
-                } else {
-                    API.updateShrub({
-                        name: shrubInfo.name,
-                        level: shrubInfo.level,
-                        hunger: shrubInfo.hunger - 5,
-                        hygiene: shrubInfo.hygiene,
-                        happiness: shrubInfo.happiness + happyup,
-                        energy: shrubInfo.energy - 5,
-                        ProfileId: shrubInfo.ProfileId
-                    }).then(data => {
-                        console.log(data)
-                    })
-                }
-            })
+        API.natural(myInit).then(data => {
+            console.log(data)
+            setSentiment(data)
+            updateShrub(parseInt(data * 10))
         })
+    }
+
+    const updateShrub = (happy) => {
+        const token = localStorage.getItem("token")
+        API.findcurrentUser(token).then(data => {
+            console.log(data.Shrub)
+            console.log(happy)
+            API.updateShrub({
+                name: data.Shrub.name,
+                level: data.Shrub.level,
+                hunger: data.Shrub.hunger,
+                hygiene: data.Shrub.hygiene,
+                happiness: data.Shrub.happiness + happy,
+                energy: data.Shrub.energy,
+                ProfileId: data.Shrub.ProfileId,
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+
     }
 
     return (
