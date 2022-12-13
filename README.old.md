@@ -23,32 +23,32 @@ SO THAT people can visually see the result according to the word that they are s
 
 ```md
 GIVEN I enter the website 
-THEN I can see options to Login, signup, and landing page
+THEN I can see options to log in, signup, and landing page
 WHEN I sign in 
-THEN I can see my Shrub with the stats bar, have access to games, section to interact with shrub, and the option to log out
+THEN I can see my Shrub with the stats bar, have access to games, a section to interact with shrub, and the option to log out
 WHEN I click "Shrubble"
-THEN I can play boogle game and earn game currency
+THEN I can play boggle game and earn game currency
 WHEN I click "Home" 
 THEN It goes back to the Shrub page
-WHEN I click "Store" in the homepage
+WHEN I click "Store" on the homepage
 THEN I can see the loot box that I can open with the game currency
-WHEN I click "open box" in the store page
+WHEN I click "open box" on the store page
 THEN I can get random Items that I can decorate my Shrub 
-WHEN I click "Customize" in the homepage 
-THEN I can change the Shurb outfit
-WHEN I click "save" in the customize page 
+WHEN I click "Customize" on the homepage 
+THEN I can change the Shrub outfit
+WHEN I click "save" on the customize page 
 THEN It saves the current outfit
 WHEN I go back to the Homepage
 THEN I can see the shrub with the new outfit
-WHEN I click "chat" in the homepage 
+WHEN I click "chat" on the homepage 
 THEN I can see the Shrub and the mic button to interact with Shrub 
-WHEN I click "mic" in the chat page 
+WHEN I click "mic" on the chat page 
 THEN It captures the voice with the user's mic
-WHEN I send my voice (sentence & word) to the server in chat page
-THEN It calculate the happinces of the shrub and updates the shrub info 
+WHEN I send my voice (sentence & word) to the server on chat page
+THEN It calculates the happiness of the shrub and updates the shrub info 
 WHEN I go back to the homepage 
 THEN I can see the stats bar changed according to the action that I've done with my shrub
-WHEN I click "clean, sleep, feed" button in the Homepage 
+WHEN I click the "clean, sleep, feed" button on the Homepage 
 THEN Shrub's stats change (clean: hygiene, sleep: energy, watering: hunger)
 WHEN I click "logout" 
 THEN I go back to the landing page
