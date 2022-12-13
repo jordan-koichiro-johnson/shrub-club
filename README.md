@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# shrub-club
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description 
 
-## Available Scripts
+Shrub Club is an app that is similar to Tamagochi.
 
-In the project directory, you can run:
+The user has a "Shrub" that they can take care of by feeding, cleaning, chatting, and more. 
 
-### `npm start`
+The distinct difference between Shrub-Club and other games (such as tamagochi, nintendogs, neopets, princess maker, etc.) is that you can interact with your shrub with verbal sentences.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When you speak a sentence or words to the shrub and send it, it calculates a reaction to the mood and applies it to the shrub's happiness.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## UserStory 
 
-### `npm test`
+```md
+AS A user who wants to know the impact of words to people's emotions
+I WANT to show how negative and positive words influence others by playing game
+SO THAT people can visually see the result according to the word that they are speaking
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `npm run build`
+## Acceptance Criteria
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```md
+GIVEN I enter the website 
+THEN I can see options to log in, signup, and landing page
+WHEN I sign in 
+THEN I can see my Shrub with the stats bar, have access to games, a section to interact with shrub, and the option to log out
+WHEN I click "Shrubble"
+THEN I can play boggle game and earn game currency
+WHEN I click "Home" 
+THEN It goes back to the Shrub page
+WHEN I click "Store" on the homepage
+THEN I can see the loot box that I can open with the game currency
+WHEN I click "open box" on the store page
+THEN I can get random Items that I can decorate my Shrub 
+WHEN I click "Customize" on the homepage 
+THEN I can change the Shrub outfit
+WHEN I click "save" on the customize page 
+THEN It saves the current outfit
+WHEN I go back to the Homepage
+THEN I can see the shrub with the new outfit
+WHEN I click "chat" on the homepage 
+THEN I can see the Shrub and the mic button to interact with Shrub 
+WHEN I click "mic" on the chat page 
+THEN It captures the voice with the user's mic
+WHEN I send my voice (sentence & word) to the server on chat page
+THEN It calculates the happiness of the shrub and updates the shrub info 
+WHEN I go back to the homepage 
+THEN I can see the stats bar changed according to the action that I've done with my shrub
+WHEN I click the "clean, sleep, feed" button on the Homepage 
+THEN Shrub's stats change (clean: hygiene, sleep: energy, watering: hunger)
+WHEN I click "logout" 
+THEN I go back to the landing page
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```md
+bootstrap
+natural
+nes.css
+react
+```
 
-### `npm run eject`
+## Usage 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm i --> then you can start the server with npm run start.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In this website you can create your own account, quizzes and profile that save in the database.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+All of this databases are interacting eachother and with this relationship we generated handlebar pages.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## APP Screen Shot 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Alt text](src/assets/Untitled.png)
 
-### Code Splitting
+## Credits 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project was created by Jordan Johnson, Sangmi Yun, and David Kovalchuk.
 
-### Analyzing the Bundle Size
+The APIs that we used are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Web Speech API] (https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 
-### Making a Progressive Web App
+- [setiment API] (https://rapidapi.com/twinword/api/sentiment-analysis/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Deployed Application 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+https://shrubclub.netlify.app/ 
 
-### Deployment
+## License 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+MIT 
 
-### `npm run build` fails to minify
+## Contact 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://github.com/itsDavidK
+
+https://github.com/jordan-koichiro-johnson
+
+https://github.com/MiaYun98
