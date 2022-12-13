@@ -6,10 +6,10 @@
  const URL_PREFIX = "https://guava-api.herokuapp.com"
 
 const API = {
-    natural: (myInit, setSentiment) => {
+    natural: (myInit) => {
         return fetch(`${URL_PREFIX}/api/natural/`, myInit)
             .then(res => res.json())
-            .then(res => setSentiment(res))
+            // .then(res => setSentiment(res))
             .catch(err => console.log(err))
     },
     login: (userObj) => {

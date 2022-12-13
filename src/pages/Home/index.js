@@ -128,7 +128,7 @@ switch (hour) {
 
 }
 
-export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
+export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken }) {
 
   // useEffect(() => {
   //   if(isLoggedIn === false) {
@@ -201,7 +201,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
 
           <div className="nes-container is-centered col-lg-8 col-sm-12 status">
-            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat} />
+            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat}/>
           </div>
           <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
             <ul>
