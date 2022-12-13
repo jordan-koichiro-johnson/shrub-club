@@ -8,7 +8,7 @@ The user has a "Shrub" that they can take care of by feeding, cleaning, chatting
 
 The distinct difference between Shrub-Club and other games (such as tamagochi, nintendogs, neopets, princess maker, etc.) is that you can interact with your shrub with verbal sentences.
 
-When you speak a sentence or words to the shrub and send it, it calculates the mood and applies to the shrub's happiness.
+When you speak a sentence or words to the shrub and send it, it calculates a reaction to the mood and applies it to the shrub's happiness.
 
 ## UserStory 
 
