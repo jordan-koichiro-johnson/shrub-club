@@ -2,11 +2,11 @@
 
 ## Description 
 
-Shrub Club is an app that is similar to Tamagochi. 
+Shrub Club is an app that is similar to Tamagochi.
 
-he user has one Shrub that they can take care of by feeding, cleaning, chatting, and others. 
+The user has a "Shrub" that they can take care of by feeding, cleaning, chatting, and more. 
 
-Distinct difference between shrub-club and other games (such as tamagochi, nintendogs, neopets, princess maker, and etc.) is that you can interact with your shrub with sentences. 
+The distinct difference between Shrub-Club and other games (such as tamagochi, nintendogs, neopets, princess maker, etc.) is that you can interact with your shrub with verbal sentences.
 
 When you speak a sentence or words to the shrub and send it, it calculates the mood and applies to the shrub's happiness.
 
