@@ -205,7 +205,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
           <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
             <ul>
-              <button onClick={buttonClean} type="button" class="btn btn-secondary custom-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover"><img src={Cleaning} /></button>
+              <button onClick={buttonClean}><img src={Cleaning} /></button>
               <button onClick={buttonSleep}><img src={SleepImg}></img></button>
               <button onClick={buttonEat}><img src={Eating} /></button>
             </ul>
