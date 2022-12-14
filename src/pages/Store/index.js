@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import "./style.css"
 import API from "../../util/API";
 
-function Store({ userId }) {
+function Store() {
   const text = document.querySelector(".textmessage");
   const [chestImg, setChestImg] = useState("chest")
   const [currentMoney, setCurrentMoney] = useState(0)
@@ -23,10 +23,10 @@ function Store({ userId }) {
     if (currentMoney < 100) {
       return console.log("click")
     } else {
+      setCurrentMoney(currentMoney-100)
       setTimeout(function () {
         setChestImg("chest")
         setnewItem("default")
-        setCurrentMoney(currentMoney-100)
         text.innerHTML = ("$100 to open the chest.")
         API.updateProfile({
           money: currentMoney-100,
