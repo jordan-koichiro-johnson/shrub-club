@@ -10,23 +10,38 @@
     filter: brightness(90%);
 }
 
-.signup {
+.title-howto{
+    text-align: center;
+    margin: 20px;
+}
+
+.howtosection{
+    padding-top: 20px;
+}
+
+.howto {
     margin-left: 10%;
-    padding-top: 2vh;
+    padding-top: 6vh;
     width: 80%;
-    height: 40%;
+    height: 80vh;
     background-color: beige;
+    top:10vh;
     animation: 1s ease-out 0s 1 slideInLeft;
     border: 5px solid black;
     border-top: none;
 }
 
-.signupTitle {
+
+.formSignup {
+    align-items: center;
+}
+
+.howtoTitle {
     text-align: center;
 }
 
-.formSignup {
-  margin-left: 20%;
+.howtobottom {
+    text-align: center;
 }
 
 @keyframes slideInLeft {

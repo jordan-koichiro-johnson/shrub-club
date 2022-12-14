@@ -1,5 +1,6 @@
 .GameSelect {
     position: relative;
+    height: inherit;
     overflow-y: hidden;
 }
 
@@ -24,10 +25,18 @@
 
 
     position: absolute;
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -60%);
 }
+
+.myShrubHappy {
+    position: relative;
+    filter: grayscale(0);
+    left: 0;
+}
+
+
 
 .description {
     font-size: 100%;
