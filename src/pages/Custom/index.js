@@ -162,7 +162,7 @@ export default function Custom() {
                     </div>
                 </div>
                 <div className='rightCell'>
-                    <div className='gridCell'>
+                    <div className='gridCell arrowbtn'>
                         <button className='head arrow'><img value="right" onClick={(handlehead)} className='arrowPic' src={arrow}></img></button>
                     </div>
 
@@ -183,7 +183,9 @@ export default function Custom() {
 
             <div className=" col-lg-12 col-sm-12 bottom change ">
                 <a href='/'><button type="button" className="smallButton nes-btn is-error">Take me Home!</button></a>
-                <button type="button" className=" nes-btn is-success" onClick={saveChange}>Save Changes!</button>
+                <div className={'nes-btn is-success'} onClick={saveChange}>
+                    Save Changes!
+                </div>
             </div>
 
         </div >
