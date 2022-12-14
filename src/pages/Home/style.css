@@ -44,11 +44,16 @@
 }
 
 .shrub {
+    
     background-size: cover;
+    height: 70vh;
+    overflow-y: hidden;
+     background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .shrub img {
-    width: 70vh;
+    width: 45%;
 
 }
 
