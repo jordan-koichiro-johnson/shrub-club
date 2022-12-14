@@ -119,11 +119,12 @@ switch (hour) {
 
 }
 
+
 let recording = false
 
 function Chat({ shrubHappy, setShrubHappy }) {
 
-    const [micActive, setMicActive] = useState('Mic')
+    const [micActive, setMicActive] = useState('Microphone')
     const [value, setValue] = useState('')
     const [sentiment, setSentiment] = useState(0)
 
@@ -143,7 +144,7 @@ function Chat({ shrubHappy, setShrubHappy }) {
         }
         if (recording === true && SpeechRecognition) {
 
-            setMicActive('Mic')
+            setMicActive('Microphone')
             recognition.stop()
         }
         if (!SpeechRecognition) {
@@ -211,16 +212,18 @@ function Chat({ shrubHappy, setShrubHappy }) {
 
                     <MyShrub />
                 </div>
-                <p>{parseInt(sentiment * 10)} Happiness</p>
+                <p className="happyNotify">{parseInt(sentiment * 10)} Happiness</p>
             </div>
             <div className="col-lg-12 col-sm-12 bodt">
-                <form>
+                <form className="textArea">
                     <label for={"talk"}>
-                        Talk:
+                        Click the Button to Speak to Your Shrub!
                     </label>
-                    <input type={"text"} id={"talk"} name={"talk"} value={value} className="nes-textarea" />
-                    <button type={'button'} className="nes-btn is-primary" onClick={MicButton}>🎤Mic{micActive}</button>
-                    <button type={'button'} className="nes-btn is-success" >Send Message</button>
+                    <input type={"text"} id={"talk"} name={"talk"} value={value} className="nes-textarea textBox" />
+                    <div className={'micBtn nes-btn is-primary'} onClick={MicButton}>
+                    🎤{micActive}
+                    </div>
+                    
                 </form>
             </div>
 
