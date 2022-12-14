@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import './style.css'
 import API from '../../util/API';
 
-//background images
+//background images yay
 import midnight from '../../util/time/11.12am.png';
 import twoAM from '../../util/time/12.2am.png';
 import fiveAM from '../../util/time/1.5am.png';
