@@ -126,26 +126,24 @@ function Howto({ }) {
 
   return (
     <div className="backgroundDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
-      <div className='signup'>
-        <h1 className="signupTitle"> How to play! </h1>
-        <form className='formSignup'>
+      <div className='howto'>
+        <h1 className="howtoTitle"> How to play? </h1>
           <h4 className='title-howto'>Welcome to Shrub club!</h4>
-          <p className='title-howto'>You just successfullly achieve your first step to your shrub!</p>
+          <p className='title-howto'>You just successfullly achieved your first your shrub!</p>
 
           <div className='howtosection'>
-            <h3>Taking care your shrub</h3>
-            <p>Now you are going to have your own shrub to take care</p>
-            <p>You can feed, clean, sleep, play game, and chat with your shrub</p>
-            <p>When you are interecting your Shrub with chat,</p>
-            <p>You should becareful with your words!</p>
-            <p>With the money that you earn from the Shrubble,</p>
-            <p>You can open the loot box and decorate your shrub!</p>
+            <h3 className='title-howto'>How to Take Care of Your Shrub?</h3>
+            <p className='title-howto'>Now you have a shrub to take care of!</p>
+            <p className='title-howto'>You can feed, clean, sleep, play shrubble, and chat with your shrub.</p>
+            <p className='title-howto'>When you are talking to your shrub,</p>
+            <p className='title-howto'>You should be careful with your words!</p>
+            <p className='title-howto'>With the money that you earn from playing Shrubble,</p>
+            <p className='title-howto'>You can open the chest at the store, to decorate your shrub!</p>
           </div>
           <div className='howtobottom'>
-            <h2>Are you ready to meet your shrub?</h2>
+            <h2>Are You Ready to Meet Your Shrub?</h2>
             <a href='/'><button type="button" className="nes-btn is-primary">Let's go!</button></a>
           </div>
-        </form>
       </div>
     </div>
   )

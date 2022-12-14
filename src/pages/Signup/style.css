@@ -12,27 +12,21 @@
 
 .signup {
     margin-left: 10%;
-    padding-top: 10vh;
+    padding-top: 2vh;
     width: 80%;
-    height: 60vh;
+    height: 40%;
     background-color: beige;
-    top:10vh;
     animation: 1s ease-out 0s 1 slideInLeft;
     border: 5px solid black;
     border-top: none;
 }
 
-.nes-input {
-    margin: 3%;;
+.signupTitle {
+    text-align: center;
 }
 
 .formSignup {
-    margin:2%;
-    align-items: center;
-}
-
-.signupTitle {
-    text-align: center;
+  margin-left: 20%;
 }
 
 @keyframes slideInLeft {
