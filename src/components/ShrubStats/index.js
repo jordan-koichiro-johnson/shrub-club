@@ -54,10 +54,9 @@ export default function ShrubStats({ clean, sleep, eat }) {
 
         API.findcurrentUser(token).then(data => {
             console.log(data)
-            setShrubHappiness(data.Shrub.happiness)
+            setShrubHappy(data.Shrub.happiness)
             setShrubData(data.Shrub)
             setShrubLevel(data.days)
-            setShrubHappy(data.Shrub.happiness)
             setShrubHygiene(data.Shrub.hygiene)
             setShrubEnergy(data.Shrub.energy)
             setShrubEat(data.Shrub.hunger)
@@ -206,7 +205,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
 
                 <p>Happiness</p>
 
-                <progress className="nes-progress is-warning" value={shrubHappiness} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubHappiness} max="100"></progress>
+                <progress className="nes-progress is-warning" value={shrubHappy} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubHappy} max="100"></progress>
 
             </div>
             <div>
