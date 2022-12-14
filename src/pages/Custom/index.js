@@ -8,29 +8,34 @@ var headArray = [];
 var eyeArray = [];
 var mouthArray = [];
 
-const token = localStorage.getItem("token")
-console.log('useeffect')
-API.getProfileTag(token).then(data => {
-    data.map(
-        (map) => {
-            API.getOneItem(map.ItemId).then(data => {
-                if (data.type === "head") {
-                    headArray.push(data.name);
-                } else if (data.type === "eye") {
-                    eyeArray.push(data.name);
-                } else if (data.type === "mouth") {
-                    mouthArray.push(data.name)
-                }
-            })
-        })
-})
-headArray.push("default")
-eyeArray.push("default")
-mouthArray.push("default")
-
-
 export default function Custom() {
+    console.log(headArray)
+    console.log(eyeArray)
+    console.log(mouthArray)
     const token = localStorage.getItem("token")
+    console.log('useeffect')
+    API.getProfileTag(token).then(data => {
+
+        data.map(
+            (map) => {
+                API.getOneItem(map.ItemId).then(data => {
+                    if (data.type === "head") {
+                        headArray.push(data.name);
+                    } else if (data.type === "eye") {
+                        eyeArray.push(data.name);
+                    } else if (data.type === "mouth") {
+                        mouthArray.push(data.name)
+                    }
+                })
+            })
+    })
+    headArray.push("default")
+    eyeArray.push("default")
+    mouthArray.push("default")
+
+
+
+
     const [headnum, setheadnum] = useState(0)
     const [eyenum, seteyenum] = useState(0)
     const [mouthnum, setmouthnum] = useState(0)
@@ -106,7 +111,7 @@ export default function Custom() {
             console.log(data.Shrub.id)
             const shrubInfo = data.Shrub.id
             console.log(shrubInfo)
-            API.deleteShrubTag({ ShrubId: shrubInfo.id }).then(data => {
+            API.deleteShrubTag({ ShrubId: shrubInfo }).then(data => {
 
                 console.log(data)
                 dataSave(shrubInfo, headArray[headnum])
@@ -157,7 +162,7 @@ export default function Custom() {
                     </div>
                 </div>
                 <div className='rightCell'>
-                    <div className='gridCell'>
+                    <div className='gridCell arrowbtn'>
                         <button className='head arrow'><img value="right" onClick={(handlehead)} className='arrowPic' src={arrow}></img></button>
                     </div>
 
@@ -177,8 +182,13 @@ export default function Custom() {
             </div>
 
             <div className=" col-lg-12 col-sm-12 bottom change ">
-                <a href='/'><button type="button" className="smallButton nes-btn is-error">Take me Home!</button></a>
-                <button type="button" className=" nes-btn is-success" onClick={saveChange}>Save Changes!</button>
+                <a href='/'><div className={'nes-btn is-error'}>
+                    Take me Home!
+                </div>
+                </a>
+                <div className={'nes-btn is-success'} onClick={saveChange}>
+                    Save Changes!
+                </div>
             </div>
 
         </div >

@@ -3,6 +3,26 @@
     margin-top: 10vh;
 }
 
+.textArea {
+    width: 90%;
+    background-color: beige;
+    border: 5px solid black;
+    border-top: none;
+    animation: 1s ease-out 0s 1 slideInDown;
+}
+
+.textBox {
+    background-color: whitesmoke;
+}
+
+.nes-btn :hover{
+    cursor: pointer;
+}
+
+.micBtn {
+    width: 50%;
+}
+
 .shrubName {
     height: 60vh;
     overflow: hidden;
@@ -16,6 +36,14 @@
 
 .box {
     padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+}
+
+.happyNotify {
+    color: white;
 }
 
 .good {
@@ -30,6 +58,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
 }
 
 @media (max-width: 1000px) {
@@ -38,3 +67,12 @@
         margin-top: 10vh;
     }
 }
+
+@keyframes slideInDown {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

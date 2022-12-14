@@ -25,6 +25,7 @@ body {
     align-items: center;
 }
 
+
 .row {
 
     margin-left: 2rem;
@@ -46,8 +47,12 @@ body {
     width: 10vw;
 }
 
+.arrow :hover{
+    cursor: pointer;
+}
+
 .shrubpic {
-    height: 70vh;
+    height: 80vh;
     position: relative;
     overflow-y: hidden;
 }
@@ -69,6 +74,7 @@ body {
 
     width: inherit;
 }
+
 
 @media (max-width: 1145px) {
     .arrowPic {

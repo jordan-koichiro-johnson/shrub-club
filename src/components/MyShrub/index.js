@@ -20,7 +20,6 @@ export default function MyShrub({ clean, sleep, eat }) {
 
     console.log(statusEye)
     API.findcurrentUser(token).then(data => {
-      console.log(data)
       setShrubName(data.Shrub.name)
       if (data.Shrub.happiness >= 80) {
         setShrubstatusHappy("happy")
@@ -79,15 +78,16 @@ export default function MyShrub({ clean, sleep, eat }) {
   return (
     <div className="GameSelect">
       <div className='clothes'>
+        <img/>
         <img className='myShrubPic' src={color} />
         <img className='myShrubPic' src={shrub} />
         <img className='myShrubPic' src={require(`../../assets/options/${statusEye}.png`)} />
         <img className='myShrubPic' src={require(`../../assets/sprites/${headItem}.png`)} />
-        <img className='myShrubPic' src={require(`../../assets/sprites/${mouthItem}.png`)} />        <img src={require(`../../assets/sprites/${shrubstatusHunger}.png`)} />
+        <img className='myShrubPic' src={require(`../../assets/sprites/${mouthItem}.png`)} />        
+        <img className='myShrubPic' src={require(`../../assets/sprites/${shrubstatusHunger}.png`)} />
         <img className='myShrubPic' src={require(`../../assets/sprites/${shrubstatusHappy}.png`)} />
         <img className='myShrubPic' src={require(`../../assets/sprites/${eyeItem}.png`)} />
         <img className='myShrubPic' src={require(`../../assets/options/${shrubOption}.png`)} />
-        <p className={'description'}>{shurbName} smells like blue cheese.</p>
       </div>
 
     </div>

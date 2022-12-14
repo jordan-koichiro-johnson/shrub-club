@@ -44,11 +44,16 @@
 }
 
 .shrub {
+    
     background-size: cover;
+    height: 70vh;
+    overflow-y: hidden;
+     background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .shrub img {
-    width: 70vh;
+    width: 45%;
 
 }
 
@@ -101,6 +106,15 @@
 
 .nes-container .status {
     padding: 0rem;
+}
+
+.custom-popover {
+  --bs-popover-max-width: 200px;
+  --bs-popover-border-color: var(--bs-primary);
+  --bs-popover-header-bg: var(--bs-primary);
+  --bs-popover-header-color: var(--bs-white);
+  --bs-popover-body-padding-x: 1rem;
+  --bs-popover-body-padding-y: .5rem;
 }
 
 @media (max-width: 1000px) {
