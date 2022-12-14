@@ -144,7 +144,7 @@ export function Boggle() {
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordString}`)
                 .then(response => {
                     if (response.status === 200) {
-                        // words are correctly guessed TODO: API call to increase shrub level and money
+
                         const token = localStorage.getItem("token")
                         API.findcurrentUser(token).then(data => {
                             setShrubInfo(data.Shrub)

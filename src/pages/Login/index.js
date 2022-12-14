@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react'
+import { React, useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import './style.css'
@@ -124,6 +124,8 @@ switch (hour) {
 
 function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLoginPassword, setUserLoginPassword, setUserId, userId, token, setToken }) {
   const navigate = useNavigate();
+  const [invalid, setInvalid] = useState('')
+
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -137,13 +139,13 @@ function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLog
     document.querySelector(".password").classList.remove("is-error")
     if (userLoginId == "") {
       document.querySelector(".username").classList.add("is-error")
-      document.querySelector(".alert").innerHTML = "Please Enter the Shrub's Name"
+      setInvalid("Invalid Shrub or Password")
     } else if (userLoginPassword == "") {
       document.querySelector(".password").classList.add("is-error")
-      document.querySelector(".alert").innerHTML = "Please Enter a Password"
+      setInvalid("Invalid Shrub or Password")
     } else if (userLoginPassword.length < 8) {
       document.querySelector(".password").classList.add("is-error")
-      document.querySelector(".alert").innerHTML = "Invalid Shrub or Password"
+      setInvalid("Invalid Shrub or Password")
     } else {
       API.login({
         userName: userLoginId,
@@ -166,18 +168,19 @@ function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLog
   }
 
   return (
-    <div className= "backgroundDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
-    <div className='login'>
-      <h1 className ="loginTitle"> Login </h1>
-      <form className='formSignup'>
-        <label>Shrub Name</label>
-        <input className="nes-input username" name="username" type="text" value={userLoginId} onChange={e => setUserLoginId(e.target.value)} />
-        <label>Password</label>
-        <input className="nes-input password" name="password" type="password" value={userLoginPassword} onChange={e => setUserLoginPassword(e.target.value)} />
-        <h3 className='alert'> Ready To Play With Your Shrub?</h3>
-        <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Login</button>
-      </form>
-    </div>
+    <div className="backgroundDiv" style={{ backgroundImage: `url(${shrubBG})` }}>
+      <div className='login'>
+        <h1 className="loginTitle"> Login </h1>
+        <form className='formSignup'>
+          <label>Shrub Name</label>
+          <input className="nes-input username" name="username" type="text" value={userLoginId} onChange={e => setUserLoginId(e.target.value)} />
+          <label>Password</label>
+          <input className="nes-input password" name="password" type="password" value={userLoginPassword} onChange={e => setUserLoginPassword(e.target.value)} />
+          <div className='is-error'>{invalid}</div>
+          <h3 className='alert'> Ready To Play With Your Shrub?</h3>
+          <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Login</button>
+        </form>
+      </div>
     </div>
   )
 }

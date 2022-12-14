@@ -180,22 +180,26 @@ function Chat() {
                 console.log(data.Shrub)
                 const shrubInfo = data.Shrub;
                 const happyup = parseInt(sentiment * 10)
-                if (shrubInfo.happiness > 100) {
-                    alert("your shub is happy enough")
-                } else {
-                    API.updateShrub({
-                        name: shrubInfo.name,
-                        level: shrubInfo.level,
-                        hunger: shrubInfo.hunger - 5,
-                        hygiene: shrubInfo.hygiene,
-                        happiness: shrubInfo.happiness + happyup,
-                        energy: shrubInfo.energy - 5,
-                        ProfileId: shrubInfo.ProfileId
-                    }).then(data => {
-                        console.log(data)
-                    })
-                }
+
+                API.updateShrub({
+                    name: shrubInfo.name,
+                    level: shrubInfo.level,
+                    hunger: shrubInfo.hunger - 5,
+                    hygiene: shrubInfo.hygiene,
+                    happiness: shrubInfo.happiness + happyup,
+                    energy: shrubInfo.energy - 5,
+                    ProfileId: shrubInfo.ProfileId
+                }).catch(e => {
+                    console.log(e)
+
+                })
+
+
+            }).catch(e => {
+                console.log(e)
             })
+        }).catch(e => {
+            console.log(e)
         })
     }
 

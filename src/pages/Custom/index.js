@@ -15,6 +15,7 @@ export default function Custom() {
     const token = localStorage.getItem("token")
     console.log('useeffect')
     API.getProfileTag(token).then(data => {
+
         data.map(
             (map) => {
                 API.getOneItem(map.ItemId).then(data => {

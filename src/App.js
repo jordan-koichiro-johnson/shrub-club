@@ -12,10 +12,12 @@ import Chat from "./pages/Chat";
 
 
 import "nes.css/css/nes.min.css"
-
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle"
 
 import './App.css';
 import API from "./util/API";
+
+
 
 
 function App() {
@@ -67,9 +69,9 @@ function App() {
             userId={userId} setUserId={setUserId} profileId={profileId} setProfileId={setProfileId}
           />}></Route>
 
-          <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
-          <Route path="/store" element={<Store userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
-          <Route path="/chat" element={<Chat userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
+          <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />} />
+          <Route path="/store" element={<Store userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />} />
+          <Route path="/chat" element={<Chat userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} />} />
 
         </Routes>
       </Router>
