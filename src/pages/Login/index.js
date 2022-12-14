@@ -180,8 +180,9 @@ function Login({ isLoggedIn, setIsLoggedIn, userLoginId, setUserLoginId, userLog
 
           <div className='is-error'>{invalid}</div>
 
-
-          <button type="button" className="nes-btn is-primary" onClick={handleLoginSubmit}>Login</button>
+          <div className={'nes-btn is-primary'} onClick={handleLoginSubmit}>
+                    Login
+                    </div>
         </form>
       </div>
     </div>
