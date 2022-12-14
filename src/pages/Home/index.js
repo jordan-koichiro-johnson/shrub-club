@@ -129,11 +129,13 @@ switch (hour) {
 
 }
 
+
 export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   })
+
   // useEffect(() => {
   //   if(isLoggedIn === false) {
   //     localStorage.removeItem("token");
@@ -205,7 +207,7 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
 
           <div className="nes-container is-centered col-lg-8 col-sm-12 status">
-            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat} />
+            <ShrubStats userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId} sleep={sleep} clean={clean} eat={eat}/>
           </div>
           <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
             <ul>
