@@ -191,7 +191,9 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
           <label>Password</label>
           <input className="nes-input password" name="password" type="password" value={userSignupPassword} onChange={e => setUserSignupPassword(e.target.value)} />
           <div className='is-error'>{invalid}</div>
-          <button type="button" className="nes-btn is-primary" onClick={handleSubmitSubmit}>Create</button>
+          <div className={'nes-btn is-primary'} onClick={handleSubmitSubmit}>
+                    Create
+                    </div>
         </form>
       </div>
     </div>
