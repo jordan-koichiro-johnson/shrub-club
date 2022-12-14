@@ -2,12 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import API from '../../util/API'
 import './style.css'
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 export default function ShrubStats({ clean, sleep, eat }) {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
     const navigate = useNavigate();
     const [optionData, setOptionData] = useState(false)
     const [shrubData, setShrubData] = useState("")
     const [shrubLevel, setShrubLevel] = useState(0)
+
     const [shrubHygiene, setShrubHygiene] = useState(0)
     const [shrubEat, setShrubEat] = useState(0)
     const [shrubEnergy, setShrubEnergy] = useState(0)
@@ -40,10 +48,13 @@ export default function ShrubStats({ clean, sleep, eat }) {
         })
     }, [])
 
+
     useEffect(() => {
         const token = localStorage.getItem("token")
+
         API.findcurrentUser(token).then(data => {
             console.log(data)
+            setShrubHappiness(data.Shrub.happiness)
             setShrubData(data.Shrub)
             setShrubLevel(data.days)
             setShrubHappy(data.Shrub.happiness)
@@ -56,11 +67,14 @@ export default function ShrubStats({ clean, sleep, eat }) {
             navigate("/")
             console.log(err)
         })
+
     }, [shrubHygiene, shrubEat, shrubEnergy, shrubHappy])
+
 
     useEffect(() => {
         if (clean === true) {
             if (shrubHygiene >= 100) {
+
                 return
             } else {
                 API.updateShrub({
@@ -89,6 +103,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
     useEffect(() => {
         if (sleep === true) {
             if (shrubEnergy >= 100) {
+
                 return
             } else {
                 setTimeout(() => {
@@ -120,7 +135,9 @@ export default function ShrubStats({ clean, sleep, eat }) {
         if (eat === true) {
             var hungernum = 0;
             if (shrubEat >= 100) {
+
                 hungernum = 100
+
             } else {
                 hungernum = shrubData.hunger + 50
             }
@@ -154,7 +171,7 @@ export default function ShrubStats({ clean, sleep, eat }) {
         part.classList.remove("is-success")
         part.classList.remove("is-warning")
         part.classList.remove("is-error")
-        if (pro > 70){
+        if (pro > 70) {
             console.log(pro)
             part.classList.add("is-success")
         } else if (pro <= 70 && 40 < pro) {
@@ -168,28 +185,36 @@ export default function ShrubStats({ clean, sleep, eat }) {
         <div className="statsBars">
             <div className='make-this-not-clip'>
 
-                <p>Level {1 + parseInt(shrubLevel/100)}</p>
-                <progress className="nes-progress" value={shrubLevel % 100} max="100"></progress>
+                <p>Level {1 + parseInt(shrubLevel / 100)}</p>
+                <progress className="nes-progress" value={shrubLevel % 100} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubLevel % 100} max="100"></progress>
             </div>
             <div>
 
                 <p>Hunger</p>
-                <progress className="nes-progress hunger" value={shrubEat} max="100"></progress>
+
+                <progress className="nes-progress" value={shrubEat} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubEat} max="100"></progress>
+
             </div>
             <div>
 
                 <p>Hygiene</p>
-                <progress className="nes-progress is-error hygiene" value={shrubHygiene} max="100"></progress>
+
+                <progress className="nes-progress is-error" value={shrubHygiene} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubHygiene} max="100"></progress>
+
             </div>
             <div>
 
                 <p>Happiness</p>
-                <progress className="nes-progress is-warning happiness" value={shrubHappy} max="100"></progress>
+
+                <progress className="nes-progress is-warning" value={shrubHappiness} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubHappiness} max="100"></progress>
+
             </div>
             <div>
 
                 <p>Energy</p>
-                <progress className="nes-progress is-success energy" value={shrubEnergy} max="100"></progress>
+
+                <progress className="nes-progress is-success" value={shrubEnergy} data-bs-toggle="tooltip" data-bs-placement="top" title={shrubEnergy} max="100"></progress>
+
             </div>
         </div>
     )

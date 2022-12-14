@@ -3,7 +3,8 @@ import "./style.css"
 import { Link } from 'react-router-dom'
 import MyShrub from '../../components/MyShrub'
 import ShrubStats from '../../components/ShrubStats'
-
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle"
+import "bootstrap/dist/css/bootstrap.min.css"
 //background images
 import midnight from '../../util/time/11.12am.png';
 import twoAM from '../../util/time/12.2am.png';
@@ -128,7 +129,12 @@ switch (hour) {
 
 }
 
-export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken }) {
+
+export default function Home({ userId, setUserId, isLoggedIn, profileId, setProfileId, token, setToken, shrubId, setShrubId }) {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
 
   // useEffect(() => {
   //   if(isLoggedIn === false) {
@@ -205,9 +211,9 @@ export default function Home({ userId, setUserId, isLoggedIn, profileId, setProf
           </div>
           <div className="nes-container col-lg-4 col-md-12 col-sm-12 option">
             <ul>
-              <button onClick={buttonClean}><img src={Cleaning} /></button>
-              <button onClick={buttonSleep}><img src={SleepImg}></img></button>
-              <button onClick={buttonEat}><img src={Eating} /></button>
+              <button data-bs-toggle="tooltip" data-bs-placement="top" title='clean' onClick={buttonClean}><img src={Cleaning} /></button>
+              <button data-bs-toggle="tooltip" data-bs-placement="top" title='sleep' onClick={buttonSleep}><img src={SleepImg}></img></button>
+              <button data-bs-toggle="tooltip" data-bs-placement="top" title='water' onClick={buttonEat}><img src={Eating} /></button>
             </ul>
           </div>
 

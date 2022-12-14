@@ -177,6 +177,7 @@ function Chat({ shrubHappy, setShrubHappy }) {
 
         };
 
+
         API.natural(myInit).then(data => {
             console.log(data)
             setSentiment(data)
@@ -200,6 +201,7 @@ function Chat({ shrubHappy, setShrubHappy }) {
             })
         }).catch(err => {
             console.log(err)
+
         })
 
     }
