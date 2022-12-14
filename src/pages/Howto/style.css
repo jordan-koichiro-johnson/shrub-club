@@ -19,11 +19,11 @@
     padding-top: 20px;
 }
 
-.signup {
+.howto {
     margin-left: 10%;
-    padding-top: 10vh;
+    padding-top: 6vh;
     width: 80%;
-    height: 60vh;
+    height: 80vh;
     background-color: beige;
     top:10vh;
     animation: 1s ease-out 0s 1 slideInLeft;
@@ -31,16 +31,12 @@
     border-top: none;
 }
 
-.nes-input {
-    margin: 3%;;
-}
 
 .formSignup {
-    margin:2%;
     align-items: center;
 }
 
-.signupTitle {
+.howtoTitle {
     text-align: center;
 }
 

@@ -191,7 +191,6 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
           <label>Password</label>
           <input className="nes-input password" name="password" type="password" value={userSignupPassword} onChange={e => setUserSignupPassword(e.target.value)} />
           <div className='is-error'>{invalid}</div>
-          <h3 className='alert'> Create Your Shrub Now!</h3>
           <button type="button" className="nes-btn is-primary" onClick={handleSubmitSubmit}>Create</button>
         </form>
       </div>
