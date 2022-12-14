@@ -182,7 +182,10 @@ export default function Custom() {
             </div>
 
             <div className=" col-lg-12 col-sm-12 bottom change ">
-                <a href='/'><button type="button" className="smallButton nes-btn is-error">Take me Home!</button></a>
+                <a href='/'><div className={'nes-btn is-error'}>
+                    Take me Home!
+                </div>
+                </a>
                 <div className={'nes-btn is-success'} onClick={saveChange}>
                     Save Changes!
                 </div>
