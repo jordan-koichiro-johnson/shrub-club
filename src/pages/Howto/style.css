@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Press+Start+2P&display=swap');
+
+.backgroundDiv {
+    overflow-y: hidden;
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:10%;
+    left:0px;
+    filter: brightness(90%);
+}
+
+.title-howto{
+    text-align: center;
+    margin: 20px;
+}
+
+.howtosection{
+    padding-top: 20px;
+}
+
+.signup {
+    margin-left: 10%;
+    padding-top: 10vh;
+    width: 80%;
+    height: 60vh;
+    background-color: beige;
+    top:10vh;
+    animation: 1s ease-out 0s 1 slideInLeft;
+    border: 5px solid black;
+    border-top: none;
+}
+
+.nes-input {
+    margin: 3%;;
+}
+
+.formSignup {
+    margin:2%;
+    align-items: center;
+}
+
+.signupTitle {
+    text-align: center;
+}
+
+.howtobottom {
+    text-align: center;
+}
+
+@keyframes slideInLeft {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

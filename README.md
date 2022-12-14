@@ -85,7 +85,9 @@ The APIs that we used are:
 
 - [Web Speech API] (https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 
-- [setiment API] (https://rapidapi.com/twinword/api/sentiment-analysis/)
+- [natural] 
+
+- [Dictionary API]
 
 
 ## Deployed Application 

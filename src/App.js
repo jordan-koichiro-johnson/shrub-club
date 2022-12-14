@@ -16,6 +16,7 @@ import "nes.css/css/nes.min.css"
 
 import './App.css';
 import API from "./util/API";
+import Howto from "./pages/Howto";
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
           <Route path="/customize" element={<Custom userId={userId} profileId={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
           <Route path="/store" element={<Store userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
           <Route path="/chat" element={<Chat userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setUserId={setUserId}/>} />
-
+          <Route path="/howtoplay" element={<Howto userId={userId} profiled={profileId} setProfileId={setProfileId} token={token} setToken={setToken} isLoggedIn={isLoggedIn}/>} />
         </Routes>
       </Router>
     </div>

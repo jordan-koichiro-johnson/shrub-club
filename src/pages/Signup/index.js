@@ -176,7 +176,7 @@ function Signup({ isLoggedIn, setIsLoggedIn, userSignupId, setUserSignupId, user
         ProfileId: data.id,
       }).then(data => {
         console.log(data)
-        navigate("/")
+        navigate("/howtoplay")
       })
     })
   }
