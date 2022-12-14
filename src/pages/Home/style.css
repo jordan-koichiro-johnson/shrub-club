@@ -110,6 +110,14 @@
         overflow-x: hidden;
     }
 
+    .row {
+        margin-top: 0;
+    }
+
+    .home {
+        padding-top: 10vh;
+    }
+
     .chat {
         width: 100vw;
     }
