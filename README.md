@@ -75,7 +75,13 @@ All of this databases are interacting eachother and with this relationship we ge
 
 ## APP Screen Shot 
 
-![Alt text](src/assets/Untitled.png)
+![Alt text](src/assets/screenshots/daylight.gif)
+![Alt text](src/assets/screenshots/actions.gif)
+![Alt text](src/assets/screenshots/moods.gif)
+![Alt text](src/assets/screenshots/custom.gif)
+![Alt text](src/assets/screenshots/chat.gif)
+![Alt text](src/assets/screenshots/shrubble.gif)
+![Alt text](src/assets/screenshots/chest.gif)
 
 ## Credits 
 
